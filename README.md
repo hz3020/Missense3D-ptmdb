@@ -24,4 +24,3 @@ Frontend:
   - main result page: /dbQuery/templates/dbQuery/results_2.html
   - Jsmol page: /dbQuery/templates/dbQuery/jsmol
 
-hello
