@@ -1,0 +1,26 @@
+#jsmolApplet {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    border: 2px solid #ccc; /* Add border with 1px width and color #ccc */
+    border-radius: 2px; /* Optional: Add border radius for rounded corners */
+}
+
+
+#jsmolApplet .jmolButton input[type="button"] {
+    background-color: #007bff; /* Change background color */
+    color: #ffffff; /* Change text color */
+    border: 1px solid #007bff; /* Add border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    padding: 10px 20px; /* Add padding */
+    font-size: 16px; /* Change font size */
+    cursor: pointer; /* Change cursor style */
+}
+
+/* Style for hovered JSmol buttons */
+#jsmolApplet .jmolButton input[type="button"]:hover {
+    background-color: #0056b3; /* Change background color on hover */
+    border-color: #0056b3; /* Change border color on hover */
+}
+
+

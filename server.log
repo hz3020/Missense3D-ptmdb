@@ -1,0 +1,422 @@
+nohup: ignoring input
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 29, 2025 - 19:22:14
+Django version 3.2.12, using settings 'variantPSite.settings'
+Starting development server at http://0:20241/
+Quit the server with CONTROL-C.
+[29/Apr/2025 19:22:19] "GET / HTTP/1.1" 200 21687
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['dbSNP', 'ClinGen', 'ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ClinGen', 'ExAC', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[29/Apr/2025 19:22:23] "POST /process_form/ HTTP/1.1" 200 381472
+[29/Apr/2025 19:22:23] "GET /static/dbQuery/images/Legends.png HTTP/1.1" 200 192536
+[29/Apr/2025 19:22:23] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[29/Apr/2025 19:22:23] "GET /static/dbQuery/jsmol/jsmol/idioma/en_GB.po HTTP/1.1" 404 1871
+[29/Apr/2025 19:22:45] "GET /contact/ HTTP/1.1" 200 8533
+[29/Apr/2025 19:22:49] "GET / HTTP/1.1" 200 21687
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['dbSNP', 'ClinGen', 'ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ClinGen', 'ExAC', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[29/Apr/2025 19:22:57] "POST /process_form/ HTTP/1.1" 200 381472
+[29/Apr/2025 19:22:57] "GET /static/dbQuery/images/Legends.png HTTP/1.1" 304 0
+[29/Apr/2025 19:22:57] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[29/Apr/2025 19:22:57] "GET /static/dbQuery/jsmol/jsmol/idioma/en_GB.po HTTP/1.1" 404 1871
+[29/Apr/2025 19:23:17] "GET /download_excel/ HTTP/1.1" 200 8121
+[29/Apr/2025 19:24:07] "GET /dataset/ HTTP/1.1" 200 25852729
+[29/Apr/2025 19:24:10] "GET /contact/ HTTP/1.1" 200 8533
+[29/Apr/2025 19:24:12] "GET / HTTP/1.1" 200 21687
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['dbSNP', 'ClinGen', 'ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ClinGen', 'ExAC', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[29/Apr/2025 19:24:16] "POST /process_form/ HTTP/1.1" 200 381472
+[29/Apr/2025 19:24:16] "GET /static/dbQuery/images/Legends.png HTTP/1.1" 304 0
+[29/Apr/2025 19:24:16] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[29/Apr/2025 19:24:16] "GET /static/dbQuery/jsmol/jsmol/idioma/en_GB.po HTTP/1.1" 404 1871
+[29/Apr/2025 22:19:10] "GET /download_excel/ HTTP/1.1" 200 8121
+[29/Apr/2025 22:44:52] "GET / HTTP/1.1" 200 21687
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['dbSNP', 'ClinGen', 'ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ClinGen', 'ExAC', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[29/Apr/2025 22:44:55] "POST /process_form/ HTTP/1.1" 200 381472
+[29/Apr/2025 22:44:55] "GET /static/dbQuery/images/Legends.png HTTP/1.1" 304 0
+[29/Apr/2025 22:44:56] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[29/Apr/2025 22:44:56] "GET /static/dbQuery/jsmol/jsmol/idioma/en_GB.po HTTP/1.1" 404 1871
+[30/Apr/2025 09:04:53] "GET / HTTP/1.1" 200 21687
+[30/Apr/2025 09:04:53] "GET /static/dbQuery/css/custom.css HTTP/1.1" 200 9801
+[30/Apr/2025 09:04:53] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 200 38010
+[30/Apr/2025 09:04:53] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 200 62645
+[30/Apr/2025 09:04:53] "GET /static/dbQuery/images/bg1-mdgrey.png HTTP/1.1" 200 7684
+Not Found: /favicon.ico
+[30/Apr/2025 09:04:53] "GET /favicon.ico HTTP/1.1" 404 3530
+Empty DataFrame
+Columns: [ptm_type, wt_residue, wt_check, ptm_start, Position, ptm_source, Link, htmlLink, evidence_code]
+Index: []
+variantAtPosQueryRes
+[{'position': 543, 'wt': 'R', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000597056', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000597056/" target="_blank" title = "Click here to go to the database for RCV000597056." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['criteria provided; multiple submitters; no conflicts\r']}, {'snp_id': 'RCV000779329', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000779329/" target="_blank" title = "Click here to go to the database for RCV000779329." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': ['Sitosterolemia (STSL)'], 'disease': ['Sitosterolemia'], 'disease_OMIMID': ['Sitosterolemia'], 'omim_id': ['-'], 'pheno_source': ['23556150'], 'source': 'RCV', 'review_status': ['criteria provided; single submitter\r']}, {'snp_id': 'RCV002245029', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV002245029/" target="_blank" title = "Click here to go to the database for RCV002245029." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': ['Sitosterolemia 1'], 'disease': ['Sitosterolemia 1'], 'disease_OMIMID': ['Sitosterolemia 1 (<a href="https://www.omim.org/entry/210250" target="_blank" title="Click to view OMIM entry">OMIM ID: 210250 <i class="bi-box-arrow-up-right"></i></a>)'], 'omim_id': ['210250'], 'pheno_source': ['23556150'], 'source': 'RCV', 'review_status': ['criteria provided; single submitter\r']}, {'snp_id': 'RCV002404596', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV002404596/" target="_blank" title = "Click here to go to the database for RCV002404596." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['Cardiovascular phenotype'], 'disease_OMIMID': ['Cardiovascular phenotype'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['criteria provided; single submitter\r']}, {'snp_id': 'RCV002476279', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV002476279/" target="_blank" title = "Click here to go to the database for RCV002476279." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': ['Sitosterolemia 1'], 'disease': ["Gallbladder disease 4'; 'Sitosterolemia 1"], 'disease_OMIMID': ['Gallbladder disease 4\'; \'Sitosterolemia 1 (<a href="https://www.omim.org/entry/210250" target="_blank" title="Click to view OMIM entry">OMIM ID: 210250 <i class="bi-box-arrow-up-right"></i></a>)'], 'omim_id': ['210250'], 'pheno_source': ['23556150'], 'source': 'RCV', 'review_status': ['criteria provided; single submitter\r']}, {'snp_id': 'VAR_012260', 'db': ['UniProt'], 'db_source': ['<a href="https://web.expasy.org/variant_pages/VAR_012260.html" target="_blank" title = "Click here to go to the database for VAR_012260." data-toggle="tooltip">UniProt <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': ['210250'], 'pheno_source': ['11452359', '15054092'], 'source': 'non‑RCV', 'review_status': []}, {'snp_id': 'rs201690654', 'db': ['dbSNP', 'ClinVar', 'ESP', 'gnomAD', 'ClinGen', 'ExAC', 'UniProt', 'TOPMed', '1000Genomes'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs201690654" target="_blank" title = "Click here to go to the database for rs201690654." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs201690654/" target="_blank" title = "Click here to go to the database for rs201690654." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs201690654" target="_blank" title = "Click here to go to the database for rs201690654." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs201690654" target="_blank" title = "Click here to go to the database for rs201690654." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs201690654&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs201690654." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs201690654" target="_blank" title = "Click here to go to the database for rs201690654." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://web.expasy.org/variant_pages/rs201690654.html" target="_blank" title = "Click here to go to the database for rs201690654." data-toggle="tooltip">UniProt <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs201690654#frequency_tab" target="_blank" title = "Click here to go to the database for rs201690654." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ensembl.org/homo_sapiens/Variation/Explore?v=rs201690654" target="_blank" title = "Click here to go to the database for rs201690654." data-toggle="tooltip">1000Genomes <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+Empty DataFrame
+Columns: [index, snp_id]
+Index: []
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 09:05:55] "POST /process_form/ HTTP/1.1" 200 425465
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/css/jsmol.css HTTP/1.1" 200 864
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/js/Jmol2.js HTTP/1.1" 200 15530
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/js/JSmol.js HTTP/1.1" 200 19144
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/images/Legends.png HTTP/1.1" 200 192536
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/js/JSmolCore.js HTTP/1.1" 200 89445
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/JSmol.min.js HTTP/1.1" 200 620178
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/j2s/img/cursor_wait.gif HTTP/1.1" 200 673
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/j2s/core/package.js HTTP/1.1" 200 7218
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corejmol.z.js HTTP/1.1" 200 1409212
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corescript.z.js HTTP/1.1" 200 349605
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/j2s/JV/StateCreator.js HTTP/1.1" 200 49705
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/jsmol/jsmol/j2s/JV/JmolStateCreator.js HTTP/1.1" 200 146
+[30/Apr/2025 09:05:55] "GET /static/dbQuery/alphafold_pdb/AF-Q9H221-F1-model_v4.pdb HTTP/1.1" 200 439505
+[30/Apr/2025 09:05:56] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corebio.z.js HTTP/1.1" 200 184006
+[30/Apr/2025 09:05:56] "GET /static/dbQuery/jsmol/jsmol/j2s/J/g3d/HermiteRenderer.js HTTP/1.1" 200 12818
+[30/Apr/2025 09:12:59] "GET /static/dbQuery/jsmol/jsmol/j2s/core/coretext.z.js HTTP/1.1" 200 67685
+[30/Apr/2025 09:19:22] "GET /static/dbQuery/jsmol/jsmol/j2s/J/shapespecial/Dots.js HTTP/1.1" 200 6824
+[30/Apr/2025 09:19:22] "GET /static/dbQuery/jsmol/jsmol/j2s/J/geodesic/EnvelopeCalculation.js HTTP/1.1" 200 12532
+[30/Apr/2025 09:19:22] "GET /static/dbQuery/jsmol/jsmol/j2s/J/api/JmolEnvCalc.js HTTP/1.1" 200 118
+[30/Apr/2025 09:19:23] "GET /static/dbQuery/jsmol/jsmol/j2s/J/renderspecial/DotsRenderer.js HTTP/1.1" 200 2976
+[30/Apr/2025 09:22:58] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corescriptmath.z.js HTTP/1.1" 200 73278
+[30/Apr/2025 09:33:09] "GET / HTTP/1.1" 200 21687
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['dbSNP', 'ClinGen', 'ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ClinGen', 'ExAC', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 09:33:13] "POST /process_form/ HTTP/1.1" 200 381472
+[30/Apr/2025 09:33:13] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[30/Apr/2025 09:33:13] "GET /static/dbQuery/alphafold_pdb/AF-Q03431-F1-model_v4.pdb HTTP/1.1" 200 386612
+           ptm_type  ...                                      evidence_code
+40  Phosphorylation  ...  [ECO:0000269 (Experimental evidence manually c...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 678, 'wt': 'T', 'mutant': 'M', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000709011', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000709011/" target="_blank" title = "Click here to go to the database for RCV000709011." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': ['Hereditary cancer'], 'disease': ['Hereditary cancer'], 'disease_OMIMID': ['Hereditary cancer'], 'omim_id': ['-'], 'pheno_source': [], 'source': 'RCV', 'review_status': ['criteria provided; single submitter\r']}, {'snp_id': 'RCV001215248', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV001215248/" target="_blank" title = "Click here to go to the database for RCV001215248." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': ['EGFR-related lung cancer (EGFR)'], 'disease': ['EGFR-related lung cancer'], 'disease_OMIMID': ['EGFR-related lung cancer'], 'omim_id': ['-'], 'pheno_source': ['25311215', '30813707', '24827857', '29355391', '24846033', '23562183', '23667368', '23649446'], 'source': 'RCV', 'review_status': ['criteria provided; single submitter\r']}, {'snp_id': 'rs138193597', 'db': ['dbSNP', 'ClinVar', 'ESP', 'gnomAD', 'ClinGen', 'ExAC', 'NCI-TCGA', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs138193597" target="_blank" title = "Click here to go to the database for rs138193597." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs138193597/" target="_blank" title = "Click here to go to the database for rs138193597." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs138193597" target="_blank" title = "Click here to go to the database for rs138193597." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs138193597" target="_blank" title = "Click here to go to the database for rs138193597." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs138193597&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs138193597." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs138193597" target="_blank" title = "Click here to go to the database for rs138193597." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs138193597" target="_blank" title = "Click here to go to the database for rs138193597." data-toggle="tooltip">NCI-TCGA <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs138193597#frequency_tab" target="_blank" title = "Click here to go to the database for rs138193597." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 678, 'wt': 'T', 'mutant': 'A', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs1167057229', 'db': ['gnomAD', 'ClinGen'], 'db_source': ['<a href="https://gnomad.broadinstitute.org/variant/rs1167057229" target="_blank" title = "Click here to go to the database for rs1167057229." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs1167057229&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs1167057229." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+    Position  ...                                             snp_id
+0         56  ...                                      [rs767259994]
+1         73  ...                                     [rs1269583681]
+2        196  ...                        [RCV001231471, rs766507267]
+3        229  ...                                      [COSM3412174]
+4        229  ...                                     [rs1247276424]
+..       ...  ...                                                ...
+56      1162  ...  [RCV000120700, RCV000860973, RCV002505060, rs4...
+57      1162  ...                        [RCV001345675, rs766347941]
+58      1191  ...                                     [RCV001321254]
+59      1191  ...                        [RCV001233420, rs372948989]
+60      1199  ...                        [RCV001339672, rs768074018]
+
+[61 rows x 5 columns]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 09:33:28] "POST /process_form/ HTTP/1.1" 200 909509
+[30/Apr/2025 09:33:28] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[30/Apr/2025 09:33:29] "GET /static/dbQuery/alphafold_pdb/AF-P00533-F1-model_v4.pdb HTTP/1.1" 200 772334
+Empty DataFrame
+Columns: [ptm_type, wt_residue, wt_check, ptm_start, Position, ptm_source, Link, htmlLink, evidence_code]
+Index: []
+variantAtPosQueryRes
+[{'position': 734, 'wt': 'S', 'mutant': 'I', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000414597', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000414597/" target="_blank" title = "Click here to go to the database for RCV000414597." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Pathogenic/Likely pathogenic'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['criteria provided; multiple submitters; no conflicts\r']}, {'snp_id': 'RCV000667438', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000667438/" target="_blank" title = "Click here to go to the database for RCV000667438." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Pathogenic/Likely pathogenic'], 'conditions': ['Niemann-Pick disease; type C1'], 'disease': ['Niemann-Pick disease; type C1'], 'disease_OMIMID': ['Niemann-Pick disease; type C1 (<a href="https://www.omim.org/entry/257220" target="_blank" title="Click to view OMIM entry">OMIM ID: 257220 <i class="bi-box-arrow-up-right"></i></a>)'], 'omim_id': ['257220'], 'pheno_source': ['20301473'], 'source': 'RCV', 'review_status': ['criteria provided; multiple submitters; no conflicts\r']}, {'snp_id': 'VAR_043230', 'db': ['UniProt'], 'db_source': ['<a href="https://web.expasy.org/variant_pages/VAR_043230.html" target="_blank" title = "Click here to go to the database for VAR_043230." data-toggle="tooltip">UniProt <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': ['257220'], 'pheno_source': ['12955717'], 'source': 'non‑RCV', 'review_status': []}, {'snp_id': 'rs757475924', 'db': ['dbSNP', 'ClinVar', 'gnomAD', 'ClinGen', 'ExAC', 'UniProt', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs757475924" target="_blank" title = "Click here to go to the database for rs757475924." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs757475924/" target="_blank" title = "Click here to go to the database for rs757475924." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs757475924" target="_blank" title = "Click here to go to the database for rs757475924." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs757475924&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs757475924." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs757475924" target="_blank" title = "Click here to go to the database for rs757475924." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://web.expasy.org/variant_pages/rs757475924.html" target="_blank" title = "Click here to go to the database for rs757475924." data-toggle="tooltip">UniProt <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs757475924#frequency_tab" target="_blank" title = "Click here to go to the database for rs757475924." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+    Position  ...                                             snp_id
+0         70  ...                                       [COSM987098]
+1         70  ...          [RCV000731921, RCV001369012, rs200291759]
+2        122  ...                                     [rs1448273242]
+3        135  ...                                     [rs1198731697]
+4        185  ...                        [RCV001245521, rs139485263]
+5        222  ...                                      [rs773603273]
+6        222  ...  [RCV000078485, RCV000254118, RCV000509165, RCV...
+7        478  ...                                      [rs767984882]
+8        557  ...                                      [rs772427096]
+9        598  ...                                     [rs1253283198]
+10       598  ...                                      [rs201236716]
+11       916  ...                                     [rs1270245521]
+12       916  ...          [RCV000415351, RCV000591193, rs756815669]
+13       931  ...                                        [rs1140458]
+14       931  ...                                      [rs774579664]
+15       961  ...                                      [rs766770645]
+16       961  ...  [RCV000239155, RCV000671674, rs34084984, VAR_0...
+17       968  ...  [RCV000670723, RCV002222596, rs773767253, VAR_...
+18      1072  ...                                     [rs1366505622]
+
+[19 rows x 5 columns]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 09:33:51] "POST /process_form/ HTTP/1.1" 200 739310
+[30/Apr/2025 09:33:51] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[30/Apr/2025 09:33:52] "GET /static/dbQuery/alphafold_pdb/AF-O15118-F1-model_v4.pdb HTTP/1.1" 200 821582
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['dbSNP', 'ClinGen', 'ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ClinGen', 'ExAC', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 09:34:26] "POST /process_form/ HTTP/1.1" 200 381472
+[30/Apr/2025 09:34:26] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[30/Apr/2025 09:34:43] "GET / HTTP/1.1" 200 21687
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['dbSNP', 'ClinGen', 'ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ClinGen', 'ExAC', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 09:34:47] "POST /process_form/ HTTP/1.1" 200 381472
+[30/Apr/2025 09:34:48] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['dbSNP', 'ClinGen', 'ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ClinGen', 'ExAC', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 09:35:05] "POST /process_form/ HTTP/1.1" 200 381472
+[30/Apr/2025 09:35:05] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['dbSNP', 'ClinGen', 'ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ClinGen', 'ExAC', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 09:35:24] "POST /process_form/ HTTP/1.1" 200 381472
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/css/custom.css HTTP/1.1" 200 9801
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 200 62645
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 200 38010
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/images/Legends.png HTTP/1.1" 200 192536
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/css/jsmol.css HTTP/1.1" 200 864
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/jsmol/jsmol/js/Jmol2.js HTTP/1.1" 200 15530
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/jsmol/jsmol/js/JSmol.js HTTP/1.1" 200 19144
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/jsmol/jsmol/JSmol.min.js HTTP/1.1" 200 620178
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/jsmol/jsmol/js/JSmolCore.js HTTP/1.1" 200 89445
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/jsmol/jsmol/j2s/img/cursor_wait.gif HTTP/1.1" 200 673
+[30/Apr/2025 09:35:24] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+Not Found: /favicon.ico
+[30/Apr/2025 09:35:24] "GET /favicon.ico HTTP/1.1" 404 3530
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['dbSNP', 'ClinGen', 'ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ClinGen', 'ExAC', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 09:36:04] "POST /process_form/ HTTP/1.1" 200 381472
+[30/Apr/2025 09:36:04] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+/project/home23/hz3020/1-4-25_variantPSite/dbQuery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 30, 2025 - 13:34:01
+Django version 3.2.12, using settings 'variantPSite.settings'
+Starting development server at http://0:20241/
+Quit the server with CONTROL-C.
+[30/Apr/2025 13:34:02] "GET / HTTP/1.1" 200 21687
+Not Found: /favicon.ico
+[30/Apr/2025 13:34:02] "GET /favicon.ico HTTP/1.1" 404 3530
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['ClinVar', 'dbSNP', 'ClinGen'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['ESP', 'gnomAD', 'ExAC', 'ClinGen', 'TOPMed'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 13:34:06] "POST /process_form/ HTTP/1.1" 200 381472
+[30/Apr/2025 13:34:06] "GET /static/dbQuery/images/Legends.png HTTP/1.1" 304 0
+[30/Apr/2025 13:34:07] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[30/Apr/2025 13:34:07] "GET /static/dbQuery/jsmol/jsmol/idioma/en_GB.po HTTP/1.1" 404 1871
+[30/Apr/2025 13:34:10] "GET /download_excel/ HTTP/1.1" 200 8120
+/project/home23/hz3020/1-4-25_variantPSite/dbQuery/views.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 30, 2025 - 13:44:45
+Django version 3.2.12, using settings 'variantPSite.settings'
+Starting development server at http://0:20241/
+Quit the server with CONTROL-C.
+/project/home23/hz3020/1-4-25_variantPSite/dbQuery/utils.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 30, 2025 - 13:47:46
+Django version 3.2.12, using settings 'variantPSite.settings'
+Starting development server at http://0:20241/
+Quit the server with CONTROL-C.
+[30/Apr/2025 14:01:30] "GET / HTTP/1.1" 200 21687
+/project/home23/hz3020/1-4-25_variantPSite/dbQuery/models.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 30, 2025 - 14:05:58
+Django version 3.2.12, using settings 'variantPSite.settings'
+Starting development server at http://0:20241/
+Quit the server with CONTROL-C.
+        ptm_type  ...                                      evidence_code
+3  Glycosylation  ...  [ECO:0000255 (Sequence model evidence used in ...
+
+[1 rows x 9 columns]
+variantAtPosQueryRes
+[{'position': 176, 'wt': 'N', 'mutant': 'Y', 'wt_check': True, 'variantInfo': [{'snp_id': 'RCV000054587', 'db': ['ClinVar'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/RCV000054587/" target="_blank" title = "Click here to go to the database for RCV000054587." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': ['Uncertain significance'], 'conditions': [], 'disease': ['not provided'], 'disease_OMIMID': ['not provided'], 'omim_id': [], 'pheno_source': [], 'source': 'RCV', 'review_status': ['no assertion criteria provided\r']}, {'snp_id': 'rs387907457', 'db': ['ClinVar', 'dbSNP', 'ClinGen'], 'db_source': ['<a href="https://www.ncbi.nlm.nih.gov/clinvar/rs387907457/" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinVar <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs387907457" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">dbSNP <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs387907457&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs387907457." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}, {'position': 176, 'wt': 'N', 'mutant': 'S', 'wt_check': True, 'variantInfo': [{'snp_id': 'rs139017205', 'db': ['gnomAD', 'ClinGen', 'TOPMed', 'ExAC', 'ESP'], 'db_source': ['<a href="https://gnomad.broadinstitute.org/variant/rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">gnomAD <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/alleles?name=rs139017205&skip=0&limit=100" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ClinGen <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/snp/rs139017205#frequency_tab" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">TOPMed <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ExAC <i class="bi-box-arrow-up-right"></i></a>', '<a href="https://www.ncbi.nlm.nih.gov/SNP/snp_ref.cgi?type=rs&rs=rs139017205" target="_blank" title = "Click here to go to the database for rs139017205." data-toggle="tooltip">ESP <i class="bi-box-arrow-up-right"></i></a>'], 'clinical_significance': [], 'conditions': [], 'disease': [], 'disease_OMIMID': [], 'omim_id': [], 'pheno_source': [], 'source': 'non‑RCV', 'review_status': []}]}]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[30/Apr/2025 14:10:30] "POST /process_form/ HTTP/1.1" 200 381648
+[30/Apr/2025 14:10:30] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[30/Apr/2025 14:10:30] "GET /static/dbQuery/jsmol/jsmol/idioma/en_GB.po HTTP/1.1" 404 1871

@@ -1,0 +1,127 @@
+<!-- contact.html -->
+{% extends 'dbQuery/base.html' %}
+
+{% block title %}Datasets{% endblock %}
+
+{% block content %}
+
+
+<style>
+  .sidebar3 {
+    position: fixed;
+    top: 100px;
+    padding-left: 15px;
+    /* transform: translateY(-50%); */
+    /* background-color: #f8f9fa; */
+    z-index: 10;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    width: 150px; /* Initial width of the sidebar */
+    display: flex;
+    margin: 0px;
+}
+
+
+.sidebar3 ul {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0px; /* Removes default padding */
+    margin: 0px;
+    color: black;
+
+}
+
+.sidebar3 ul li{
+    margin-bottom: 10px; /* Adds space between list items */
+
+}
+.sidebar3 ul li a{
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    color: #40546A;
+}
+
+.sidebar3 ul li:hover {
+    background-color: #e9e9e9; /* Changes background on hover */
+}
+</style>
+<body>
+  <div class="content">
+    <div class="bg-white pt-5">
+      <div class="container-fluid">
+        <div class="row custom-padding">
+          <div class="col">
+            <div class="col-sm-2 sidebar3">
+              <!-- Sidebar content here -->
+              <ul>
+                  <h4>Contents</h4>
+                  <li><a href="#proteins-data"><strong>Proteins</strong></a></li>
+                  <li><a href="#ptms-data"><strong>PTM Data</strong></a></li>
+                  <li><a href="#variant-data"><strong>Variant Data</strong></a></li>
+                  <li><a href="#statistics"><strong>PTM-Variant Sites</strong></a></li>
+              </ul>
+            </div>
+            <div class="col-sm-10" style="margin-left: 200px;">
+              <h1 class="border-bottom border-secondary">Datasets</h1><br>
+              <h4 id="proteins-data">Proteins</h4><hr>
+              <p>Both PTM and variant data were procured for an initial set of 20,411 reviewed (Swiss-Prot) canonical proteins from UniProtKB. The full list of UniProt IDs can be downloaded here 
+                <a href="{% url 'download_proteins' %}" target="_blank"> <i class="bi bi-download"></i></a>.
+              </p><br>
+              <h4 id="ptms-data">Post-Translational Modifications (PTMs) Data</h4><hr>
+              <p>PTM data was either extracted from a full UniProt entry page using the
+                <a href="https://www.uniprot.org/help/api_queries" class="text-decoration-none" target="_blank">
+                  UniProt website REST API
+                  <i class="bi-box-arrow-up-right"></i>
+                </a> or downloaded from
+                <a href="https://www.ebi.ac.uk/proteins/api/doc/#/" class="text-decoration-none" target="_blank">
+                  UniProt Proteins API
+                  <i class="bi-box-arrow-up-right"></i>
+                </a> from the Proteomics-PTM section. For data extracted from a UniProt entry page, PTM and topology 
+                information were extracted from the <strong>Features</strong> subsection of <strong>PTM/Processing</strong> and <strong>Subcellular Location</strong> sections, respectively.
+              </p>
+              <p>Below displays the distribution of PTM types present across all 20,277 canonical proteins within the Missense-3D PTM Database, as well as
+                the frequency of PTMs by wild type residue. Missense3D-PTM queries across a total of 139,695 PTM sites, 137,049 (98%) of which are unique to a single PTM. 
+              </p>
+              <div style='width: 100%;'>
+                <div style='width: 50%; float: left;'>{% include 'dbStats/distribution_of_ptms_pie_chart.html' %}</div>
+                <div style='margin-left: 50%;'>{% include 'dbStats/frequency_of_aa_having_ptm_pie_chart.html' %}</div>
+              </div>
+              <p>A total of 50 different PTM types exist across all proteins within the Missense-3D Database. This list is displayed below, limited to PTMs with known positions (list excludes any 
+                additional PTM sites that lack a known position on the protein sequence).
+              </p>
+              <div>{% include 'dbStats/all_ptms_table.html' %}</div>
+  
+              <h4 id="variant-data">Variant Data</h4><hr>
+              <p>Variant data was extracted from a UniProt-procured file containing all <i>Homo sapiens</i> protein altering variants, downloaded from
+                the
+                <a href="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/variants/" class="text-decoration-none" target="_blank">
+                  UniProt Variant FTP site 
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a> . The file contained both UniProtKB manually reviewed natural variants and additional protein-altering variants imported from the following publicly available
+                databases: <strong>Ensembl Variation</strong>, <strong>ClinVar</strong>, <strong>1000 Genomes</strong>, <strong>exAC</strong>, <strong>NCI-TCGA</strong>, <strong>ESP</strong>, <strong>COSMIC</strong>, and <strong>ClinGen</strong>. Current variant data
+                reflects that of the 2023_05 release of 11-Oct-2023; later release versions can be found following the FTP site link.
+              </p>
+              <p>Below shows the frequency of variants within Missense3D-PTM across all wild type residues.</p>
+              {% include 'dbStats/freq_aa_mutations_bar_chart.html' %}
+              <br>
+              <h4 id="statistics">PTM-Variant Sites</h4><hr>
+              <p>Across all canonical proteins within the Missense3D-PTM database, 180,915 residue sites harbour both a PTM and a known genetic variant.
+                The figures below display the distribution of such sites across each of the 20 amino acids present in the human body, as well as across different subcellular locations and PTM types.
+              </p>
+              <div style='width: 100%;'>
+                <div style='width: 45%; float: left;'>{% include 'dbStats/aa_at_ptm_variant_sites.html' %}</div>
+                <div style='margin-left: 50%;'>{% include 'dbStats/topology_of_ptm_variant_sites.html' %}</div>
+                <div style='float: left;'>{% include 'dbStats/ptm_variant_across_ptm_types.html' %}</div>
+  
+              </div>
+            </div>
+          </div>
+
+        </div>
+  
+        
+      </div>
+    </div>
+  </div>
+
+
+</body>
+{% endblock %}

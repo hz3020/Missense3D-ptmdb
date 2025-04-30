@@ -1,0 +1,626 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<!-- <html> -->
+<head>
+    <link rel="stylesheet" href="{% static 'dbQuery/css/jsmol.css' %}">
+    <title>JSmol Example</title>
+
+    <!-- Include JSmol JavaScript files -->
+    <script src="{% static 'dbQuery/jsmol/jsmol/JSmol.min.js' %}"></script>
+    <script src="{% static 'dbQuery/jsmol/jsmol/js/Jmol2.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="{% static 'dbQuery/jsmol/jsmol/js/JSmol.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dbQuery/jsmol/jsmol/js/JSmolCore.js' %}"></script>
+    <script> jmolInitialize("static/dbQuery/jsmol/jsmol"); </script>
+
+    <!-- var filestem="/static/proteineg/AF-Q6KCM7-F1-model_v4.pdb"; -->
+    <!-- JSmol initialisation code -->
+    <script type="text/javascript">
+        // var filestem="{{ pdb_file }}";
+        
+        var filestem = "{{ pdb_file }}"; 
+        var position_v = '{{ residue_number }}'; 
+        var hightlight_topo_func= "{{ highlighting }}";
+        var Target_Chain= "{{ Target_Chain }}";
+        var plddt_script = "{{ pLDDT_Script }}";
+        
+        function readyfunc()
+            {Jmol.script(jsmolApplet, " select all; display selected; cartoon on; spacefill off; zoom 60; wireframe off; dots OFF; select :"+ Target_Chain+ " and "+ position_v + "; wireframe 0.15;spacefill 25%; color orange;");};
+        var Info = {
+            height: "100%", // Let the applet fill the whole width of the popup, but leave some space at the bottom of the window for any html output By using %s, the applet will be resized if the window is resized
+            width: "100%",
+            use: "HTML5", // php sets the Jmol variable Info.use
+            j2sPath: '{% static "dbQuery/jsmol/jsmol/j2s" %}',
+            script: 'load '+ filestem,
+            readyFunction: readyfunc
+        };
+    </script>
+
+    <!-- for JSmol buttons -->
+    <script>
+        // Track the highlight state
+        let istarHighlighted = false;
+        let istopoHighlighted = false;
+        let isdetailHighlighted = false;
+        let isBfactorHighlighted = false;
+        let issfHighlighted = false
+
+        let istarHighlighted2 = false;
+        let istopoHighlighted2 = false;
+        let isdetailHighlighted2 = false;
+        let isBfactorHighlighted2 = false;
+        let issfHighlighted2 = false
+
+        // Toggle highlight functions
+        function toggleHighlighttarget() {
+            if (istarHighlighted) {
+            // Remove highlight
+            Jmol.script(jsmolApplet, "center all; select all; zoom 60");
+            istarHighlighted = false;
+            } else {
+            // Apply highlight
+            Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+ position_v + "; center selected; zoom 3300");
+            istarHighlighted = true;
+            }
+            istarHighlighted2 = !istarHighlighted2; // Toggle state
+            updateButton(targetButton, istarHighlighted2, "TargetZoom");
+        }
+
+        function toggleHighlighttopo() {
+            if (istopoHighlighted) {
+            // Remove highlight
+            Jmol.script(jsmolApplet, "select all; color cpk;");
+                if (isdetailHighlighted){
+                    Jmol.script(jsmolApplet, "select all; color cpk;");
+                }
+            Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+ position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+            istopoHighlighted = false;
+            residueListH.forEach(highlightResidueInJSmol)
+            residueListH.forEach(maintaincpk)
+            } else {
+            // Apply highlight
+            Jmol.script(jsmolApplet, hightlight_topo_func);
+            Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+ position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+            istopoHighlighted = true;
+            residueListH.forEach(highlightResidueInJSmol)
+            }
+            istopoHighlighted2 = !istopoHighlighted2;
+            updateButton(topoButton, istopoHighlighted2, "Topology");
+        }
+
+        function toggleHighlightdetails() {
+            if (isdetailHighlighted) {
+                if (istopoHighlighted) {
+                    // Remove highlight
+                    Jmol.script(jsmolApplet, "select all; cartoon on; wireframe off;");
+                    Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+                    isdetailHighlighted = false;
+                    residueListH.forEach(highlightResidueInJSmol)
+                } else {
+                    // Remove highlight
+                    Jmol.script(jsmolApplet, "select all; cartoon on; wireframe off; color cpk;");
+                    Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+                    isdetailHighlighted = false;
+                    residueListH.forEach(highlightResidueInJSmol)
+                    residueListH.forEach(maintaincpk)
+                }
+            } else {
+                if (istopoHighlighted) {
+                    // Apply highlight
+                    Jmol.script(jsmolApplet, "select all; cartoon off; wireframe 0.15;");
+                    Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+                    isdetailHighlighted = true;
+                    residueListH.forEach(highlightResidueInJSmol)
+                } else {
+                    // Apply highlight
+                    Jmol.script(jsmolApplet, "select all; cartoon off; wireframe 0.15; color cpk;");
+                    Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+                    isdetailHighlighted = true;
+                    residueListH.forEach(highlightResidueInJSmol)
+                }
+            }
+            isdetailHighlighted2 = !isdetailHighlighted2;
+            updateButton(detailButton, isdetailHighlighted2, "Wireframe");
+        }
+
+
+        function toggleHighlightBfactor() {
+            if (istopoHighlighted) {
+                Jmol.script(jsmolApplet, "select all; color cpk;");
+                Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+                istopoHighlighted = false;
+                residueListH.forEach(highlightResidueInJSmol)
+                residueListH.forEach(maintaincpk)
+                istopoHighlighted2 = !istopoHighlighted2;
+                updateButton(topoButton, istopoHighlighted2, "Topology");
+            }
+            if (isdetailHighlighted) {
+                Jmol.script(jsmolApplet, "select all; cartoon on; wireframe off; color cpk;");
+                Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+                isdetailHighlighted = false;
+                residueListH.forEach(highlightResidueInJSmol)
+                isdetailHighlighted2 = !isdetailHighlighted2;
+                updateButton(detailButton, isdetailHighlighted2, "Wireframe");
+            }
+            if (isBfactorHighlighted) {
+                // Remove highlight
+                Jmol.script(jsmolApplet, "select all; color cpk;");
+                Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+                isBfactorHighlighted = false;
+                } else {
+                // Apply highlight
+                Jmol.script(jsmolApplet, plddt_script);
+                isBfactorHighlighted = true;
+                }
+            isBfactorHighlighted2 = !isBfactorHighlighted2;
+            updateButton(BfactorButton, isBfactorHighlighted2, "pLDDT");
+        }
+
+        function toggleHighlightsf() {
+            if (issfHighlighted) {
+            // Remove highlight
+            Jmol.script(jsmolApplet, "select hetero; spacefill off%");
+            Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+            issfHighlighted = false;
+            residueListH.forEach(highlightResidueInJSmol)
+            } else {
+            // Apply highlight
+            Jmol.script(jsmolApplet, "select hetero; spacefill 25%");
+            Jmol.script(jsmolApplet, "select :" + Target_Chain + " and "+position_v + "; wireframe 0.15;spacefill 25%; color orange;");
+            residueListH.forEach(highlightResidueInJSmol)
+            issfHighlighted = true;
+            }
+            
+            issfHighlighted2 = !issfHighlighted2; // Toggle state
+            updateButton(sfButton, issfHighlighted2, "Hetero");
+        }
+    </script>
+
+    <script>
+        let ischainvalue = false;
+        let chainvalue = ""; // Declare globally to use in highlightGroup
+        function handleInput(event) {
+            chainvalue = event.target.value.trim(); // Remove any extra spaces
+            if (chainvalue === "") {
+                Jmol.script(jsmolApplet, "display all;");
+                ischainvalue = false;
+            // } else if (value.startsWith("`")) {
+            //     value = value.slice(1);
+            //     Jmol.script(jsmolApplet, value);
+            } else {
+                Jmol.script(jsmolApplet, "select :"+ chainvalue +";display selected;");
+                ischainvalue = true;
+            }
+        }
+    </script>
+
+    <!-- For Distance Slider functions -->
+    <script>
+        function highlightGroup(distance_group) {
+            // var chainsset = {{ chainsset|safe }};
+            var residue_number = {{ residue_number }};
+            var script = "select :" + Target_Chain + " and "+position_v+ "; center selected ;zoom 250; select all; display none; select "; // Start by clearing any previous selection
+            if (ischainvalue === true && chainvalue) {
+                // Include residue_number in the distance_group dynamically
+                const allResidues = [...distance_group, residue_number]; // Combine distance_group and residue_number
+                const residues = allResidues.join(" or "); // Join residues with "or"
+
+                // Build the script
+                script += ":" + chainvalue + " and (" + residues + "); display selected;";
+                } else {
+                    distance_group.forEach(function(residue) {
+                        script+= residue +", ";
+                    });
+                    script += residue_number+"; display selected;";
+                }
+            console.log(script);
+            Jmol.script(jsmolApplet, script); 
+        };
+
+        function highlightGroupSeq(residuelist) {
+            var allresiduelist = {{ G6|safe }};
+            allresiduelist.forEach(function(residuenumber) {
+                var residueindex = document.querySelector(`[data-residue-index='${residuenumber}']`);
+                residueindex.classList.remove('group-highlighted');
+            });
+
+            residuelist.forEach(function(residuenumber) {
+                var residueindex = document.querySelector(`[data-residue-index='${residuenumber}']`);
+                if (residueindex) {
+                    residueindex.classList.add('group-highlighted');
+                }
+            });
+        };
+        document.addEventListener('DOMContentLoaded', function() {
+            // Your slider JavaScript code goes here
+            document.getElementById('levelSlider').addEventListener('input', function() {
+                var level = this.value;
+                var maxValue = this.max; 
+                var minValue = this.min;
+                var allresiduelist = {{ G6|safe }};
+                
+                if (level == maxValue || level == minValue) {
+                    document.getElementById('sliderValue').innerHTML = "ALL";
+                    Jmol.script(jsmolApplet, "select all; display selected;");
+                    allresiduelist.forEach(function(residuenumber) {
+                        var residueindex = document.querySelector(`[data-residue-index='${residuenumber}']`);
+                        residueindex.classList.remove('group-highlighted');
+                    });
+                } else {
+                    document.getElementById('sliderValue').innerHTML = level;
+                    var distance_group;
+                    
+                    if (level == 5) {
+                        distance_group = {{ G1|safe }};
+                    } else if (level == 10) {
+                        distance_group = {{ G2|safe }};
+                    } else if (level == 15) {
+                        distance_group = {{ G3|safe }}; 
+                    } else if (level == 20) {
+                        distance_group = {{ G4|safe }};
+                    } else if (level == 25) {
+                        distance_group = {{ G5|safe }};
+                    } else if (level == 30) {
+                        distance_group = {{ G6|safe }};
+                    }
+                    
+                    highlightGroup(distance_group);
+                    highlightGroupSeq(distance_group);
+                }
+            });
+        });
+    </script>
+
+    <!-- For JSmol residue highlighting (using sequence viewer) -->
+    <script type="text/javascript">
+        let residueListH= [];
+
+        function highlightResidueInJSmol(index) {
+            // Use JSmol's script command to select and highlight the residue
+            // This example assumes the JSmol applet instance named 'applet'
+            var script = "select "+ index+";  wireframe 0.15;spacefill 25%;";
+            Jmol.script(jsmolApplet, script);
+        }
+
+        function highlightResidueInJSmol2(index) {
+            // Use JSmol's script command to select and highlight the residue
+            // This example assumes the JSmol applet instance named 'applet'
+            var script = "select "+ index+";  set dotScale 1; dots ON; color dots red";
+            Jmol.script(jsmolApplet, script);
+        }
+        function clearHighlightInJSmol(index) {
+            // Reset the view, adjust according to your needs
+            if (!isdetailHighlighted) {
+                const script = "select "+ index+"; wireframe off;spacefill off;";
+                Jmol.script(jsmolApplet, script);
+            } else {
+                if (!istopoHighlighted) {
+                    const script = "select "+ index+"; spacefill off; color cpk;";
+                    Jmol.script(jsmolApplet, script); 
+                } else {
+                    const script = "select "+ index+"; spacefill off;";
+                    Jmol.script(jsmolApplet, script); 
+                }
+            }
+        };
+        function clearHighlightInJSmol2(index) {
+            // Reset the view, adjust according to your needs
+            const script = "select "+ index+"; dots off";
+            Jmol.script(jsmolApplet, script);
+        };
+        function maintaincpk(index) {
+            const script = "select "+ index+"; color cpk;";
+            Jmol.script(jsmolApplet, script); 
+        };
+        // #### if want to connect from tables (examples in cosite table commented)
+        // function highlightResidueRibbon(index) {
+        //     // Use JSmol's script command to select and highlight the residue
+        //     var script = "select "+ index+";  ribbon ON; color ribbon red";
+        //     Jmol.script(jsmolApplet, script);
+        // }
+        // function clearHighlightInRibbon(index) {
+        //     // Reset the view, adjust according to your needs
+        //     const script = "select "+ index+"; ribbon off";
+        //     Jmol.script(jsmolApplet, script);
+        // }; 
+        document.addEventListener("DOMContentLoaded", function() {
+            const residues = document.querySelectorAll(".amino-acid-list em");
+            residues.forEach(function(residue) {
+                residue.addEventListener("mouseover", function() {
+                    const residueIndex = residue.getAttribute("data-residue");
+                    if (residueIndex != position_v) {
+                        highlightResidueInJSmol(residueIndex);
+                        highlightResidueInJSmol2(residueIndex)
+                    }
+                });
+                residue.addEventListener("mouseout", function() {
+                    const residueIndex = residue.getAttribute("data-residue");
+                    if (residueIndex != position_v) {
+                        if (residue.classList.contains('residuehighlighted')) {}
+                        else {
+                        clearHighlightInJSmol(residueIndex);}
+                        clearHighlightInJSmol2(residueIndex)
+                    }
+                });
+                residue.addEventListener("click", function() {
+                    const residueIndex = residue.getAttribute("data-residue");
+                    if (residueIndex != position_v) {
+                        // Check if the residue is already highlighted
+                        if (residue.classList.contains('residuehighlighted')) {
+                            // It's highlighted, so clear the highlight
+                            residue.classList.remove('residuehighlighted');
+                            clearHighlightInJSmol(residueIndex); // Assume you have a function to clear the highlight
+                            residueListH = residueListH.filter(info => info !== residueIndex); // Creates a new list without the value
+                            console.log("Removed item with value:", residueIndex);
+                        } else {
+                            // It's not highlighted, so add the highlight
+                            residue.classList.add('residuehighlighted');
+                            highlightResidueInJSmol(residueIndex);
+                            residueListH.push(residueIndex); // Adds info to the end of the list
+                            console.log("Added:", residueIndex); // Logs the added information
+                        }
+                    }
+                });
+            });
+            // #### if want to connect from tables 
+            // const selectAllCheckbox = document.getElementById('selectAll');
+            // const rowCheckboxes = document.querySelectorAll('.rowCheckbox');
+            // selectAllCheckbox.addEventListener('change', function() {
+            //     rowCheckboxes.forEach(checkbox => {
+            //         const row = checkbox.closest('tr');
+            //         const secondCellValue = row.cells[2].textContent;
+            //         checkbox.checked = this.checked;
+            //         if (!this.checked) {
+            //             clearHighlightInRibbon(secondCellValue);
+            //         }else {
+            //             highlightResidueRibbon(secondCellValue);
+            //         }
+            //     });
+            // });
+            // rowCheckboxes.forEach(checkbox => {
+            // checkbox.addEventListener('change', function() {
+            //     const row = this.closest('tr');
+            //     const secondCellValue = row.cells[2].textContent;
+
+            //     if (!this.checked) {
+            //             selectAllCheckbox.checked = false;
+            //             clearHighlightInRibbon(secondCellValue);
+
+            //     } else {
+            //             const allChecked = Array.from(rowCheckboxes).every(checkbox => checkbox.checked);
+            //             selectAllCheckbox.checked = allChecked;
+            //             highlightResidueRibbon(secondCellValue);
+            //         }
+            //     });
+            // });
+        });
+    </script>
+
+    <!-- For JSmol sequnece viewer buttons (Allvariants and AllPTMS)-->
+    <script>
+        let isallvarhighligthed = false;
+        let isallptmhighligthed = false;
+        // var seq_var = {{ seq_var|safe }};
+        function highlightallvar(varlist){
+            varlist.forEach(function(residuenumber) {
+                var residueindex = document.getElementById(residuenumber);
+                residueindex.classList.toggle('variant-highlighted');}
+            )    
+            isallvarhighligthed = !isallvarhighligthed;
+            updateButton(hforallvar, isallvarhighligthed, "All Variants");
+        }
+        // var seq_ptm = {{ seq_ptm|safe }}; 
+        function highlightallptm(residuelist){
+            residuelist.forEach(function(residuenumber){
+                var residueindex = document.getElementById(residuenumber);
+                residueindex.classList.toggle('ptm-highlighted');}
+            )
+            isallptmhighligthed = !isallptmhighligthed;
+            updateButton(hforallptm, isallptmhighligthed, "All PTMs");
+        }
+    </script>
+</head>
+
+
+<style>
+    /* JSmol Section CSS */
+    .amino-acid-list {
+        display: flex;
+        flex-wrap: wrap;
+        color: black;
+        
+        gap: 0px; /* Adjusts spacing between boxes */
+        max-width: calc(20 * 30px); /* 20 boxes per row, each 40px wide */
+    }
+    .emresidue {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    em {
+        font-size: 10px;
+        flex-basis: 3.75%; 
+        text-align: center;
+        
+    } /* <em> emphasize tag for residuce in sequence viewer */
+    em:hover{
+        background-color: red;
+    }
+    .residuehighlighted{
+        background-color: red;
+    }
+    .ptm-highlighted{
+        box-sizing: border-box;
+        border-top: 2px solid black; /* Top border */
+        border-radius: 60%;
+
+    }
+    .variant-highlighted{
+        box-sizing: border-box;
+        border-bottom: 2px solid black; /* Top border */
+
+    }
+    .highlighted {
+        color: black;
+    }
+    .group-highlighted {
+        box-sizing: border-box;
+        border: 1px solid black; /* Top border */
+   
+    }
+    .slider-container {
+        width: 300px; /* Adjust based on your preference */
+        margin: 1px;
+        font-size: 12px;
+    }
+    .slider {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 100%;
+        height: 15px; /* Slider thickness */
+        background: #ddd; /* Background color */
+        outline: none; /* Remove outline */
+        opacity: 0.7; /* Transparency (optional) */
+        -webkit-transition: .2s; /* Transition for smoother motion */
+        transition: opacity .2s;
+    }
+    .slider:hover {
+        opacity: 1; /* Full opacity on hover */
+    }
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 25px; /* Handle width */
+        height: 25px; /* Handle height */
+        background: rgb(26, 26, 54); /* Handle color */
+        cursor: pointer; /* Cursor on hover */
+    }
+    .slider::-moz-range-thumb {
+        width: 25px; /* Handle width */
+        height: 25px; /* Handle height */
+        background: #4CAF50; /* Handle color */
+        cursor: pointer; /* Cursor on hover */
+    }
+    /* For showing if JSmol buttons are on */
+    .highlighted2 {
+        background-color: green; /* Change background to indicate "on" */
+        color: white;
+    }
+    button:disabled {
+        opacity: 1; /* Keep full visibility */
+        cursor: not-allowed; /* Show a "not allowed" cursor */
+    }
+    .jsmolbutton {
+        height: 22px;
+        font-size: 12px;
+    }
+</style>
+
+
+<body>
+    <center>
+    {% if pdb_file is None %}
+        <p style= "color: red" class="text-center">No AlphaFold PDB file found, or the protein is >2700 amino acids.</p>
+    {% else %}
+        <div id="jsmolApplet" style="width: 100%; height: 52vh;position: relative;z-index: 1;">
+            <!-- Embed JSmol in the container -->
+            <script type="text/javascript"> 
+                Jmol._isAsync = false; // Ensure synchronous loading of JSmol
+                Jmol.getApplet('jsmolApplet', Info);
+                // Jmol.script(jsmolApplet, hightlight_func);
+            </script>
+        </div>
+
+        <div id="jsmolcontrolpanel">
+            <!-- Jmol buttons in HTML -->
+            <button class = "jsmolbutton" id="targetButton" onclick="toggleHighlighttarget()">TargetZoom: OFF</button>
+            <button class = "jsmolbutton" id="topoButton" onclick="toggleHighlighttopo()">Topology: OFF</button>
+            <button class = "jsmolbutton" id="detailButton" onclick="toggleHighlightdetails()">Wireframe: OFF</button>
+            <button class = "jsmolbutton" id="BfactorButton" onclick="toggleHighlightBfactor()">pLDDT: OFF</button>
+            <button class = "jsmolbutton" id="sfButton" style="display: none;" onclick="toggleHighlightsf()">Hetero: OFF</button>
+            <br>
+            <label for="dynamic-input" style="font-size: 12px; display: none;">Chain ID:</label>
+            <input
+                type="text"
+                id="dynamic-input"
+                oninput="handleInput(event)"
+                placeholder="case-sensitive"
+                style="height: 22px; width: 30%; font-size: 12px; display: none;"
+            /> 
+            <p style="font-size: 12px; display: inline-block; margin: 0;display: none;">( Target Chain: {{ Target_Chain }} )</p>
+            <!-- // Switching buttons texts -->
+            <script>
+                // Reference each button
+                const targetButton = document.getElementById("targetButton");
+                const topoButton = document.getElementById("topoButton");
+                const detailButton = document.getElementById("detailButton");
+                const BfactorButton = document.getElementById("BfactorButton");
+                // Update button appearance based on state
+                function updateButton(button, isHighlighted2, label) {
+                    if (isHighlighted2) {
+                    button.classList.add("highlighted2"); // Add highlighted style
+                    button.textContent = `${label}: ON`; // Update text
+                    } else {
+                    button.classList.remove("highlighted2"); // Remove highlighted style
+                    button.textContent = `${label}: OFF`;
+                    }
+                }
+                // JavaScript to toggle button visibility
+                document.getElementById("BfactorButton").addEventListener("click", function () {
+                    const button2 = document.getElementById("topoButton");
+                    button2.disabled = !button2.disabled;
+                    const button3 = document.getElementById("detailButton");
+                    button3.disabled = !button3.disabled;
+                });
+            </script>
+            <br>
+            <!-- Insert Slider -->
+            <div class="slider-container">
+                <input type="range" min="0" max="35" value="0" step="5" class="slider" id="levelSlider">
+                <p>Nearby Residues/angstrom (Å):<span id="sliderValue">ALL</span> </p> 
+            </div>
+            {% if istemplateuploaded %}
+                <p style="color: red" class="text-center">***Because using own PDB file, "TargetZoom" might be wrong, if queried residue out of range, or on Hetero.</p>
+            {% endif %}
+        </div>
+
+            <!-- include sequence viewer -->
+        {% if spagettis %}
+            <div id="lessjsmol" class="result jsmol">
+                <div class="amino-acid-list">
+                        {% for spagetti in spagettis %}
+                            <div class="position-residue-pair" >
+                                <em class="emposition" data-residue-index="{{spagetti.position2}}" style="font-size: 12px;font-style: normal;">{{ spagetti.position }}</em>
+                                <em class="emresidue" data-residue="{{spagetti.position2}}" style="color: {{ spagetti.color }}; font-size: 15px;" id="{{spagetti.position}}">{{ spagetti.residue }}</em>
+                            </div>
+                        {% endfor %} 
+                </div>
+            </div>
+        {% else %}
+                <center>
+            <p style="color: red" class="text-center">No file providing Sequence Information, due to no AlphaFold PDB file found, or the protein is >2700 amino acids.</p>
+                </center>
+        {% endif %}
+        
+        <!-- include sequence control buttons and expand buttons -->
+        <div class="button-box", style="display: flex; justify-content:flex-start; padding-top:10px;">
+            <button id = "hforallvar" onclick="highlightallvar({{seq_var | safe }})" style="margin-right:5px;">All Variants: OFF</button>
+            <button id = "hforallptm" onclick="highlightallptm({{seq_ptm | safe }})" >All PTMs: OFF</button>
+            <button class="btn expand-collapse-btn text-center" type="button" style="margin-left: auto;" onclick="toggleContent('lessjsmol', 'expandCollapseBtn-jsmol')" id="expandCollapseBtn-jsmol">
+                <span><i class="bi bi-arrows-angle-expand"></i> Expand</span>
+            </button>
+        </div>
+    
+    {% endif %}
+
+
+
+    <!-- A table is used to place useful Jmol buttons neatly along a row -->
+    </center>
+
+</body>
+
+{% endblock content %}
+<!-- </html> -->
+<!-- Jmol.jmolButton(jsmolApplet, "select all ; spacefill 150; wireframe 60; zoom 60; cartoon off", "Ball and Stick"); -->
+

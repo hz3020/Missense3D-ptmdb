@@ -1,0 +1,229 @@
+<!-- documentation.html -->
+{% extends 'dbQuery/base.html' %}
+
+{% block title %}Documentation{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<style>
+  .sidebar3 {
+    position: fixed;
+    top: 100px;
+    padding-left: 15px;
+    /* transform: translateY(-50%); */
+    /* background-color: #f8f9fa; */
+    z-index: 10;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    width: 150px; /* Initial width of the sidebar */
+    display: flex;
+    margin: 0px;
+}
+
+
+.sidebar3 ul {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0px; /* Removes default padding */
+    margin: 0px;
+    color: black;
+
+}
+
+.sidebar3 ul li{
+    margin-bottom: 10px; /* Adds space between list items */
+
+}
+.sidebar3 ul li a{
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    color: #40546A;
+}
+
+.sidebar3 ul li:hover {
+    background-color: #e9e9e9; /* Changes background on hover */
+}
+</style>
+
+
+<body>
+  <div class="content">
+    <div class="bg-white pt-5">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="sidebar3">
+                    <!-- Sidebar content here -->
+                    <ul style="padding-left: 0; list-style-type: none; margin: 0;">
+                    <!-- <li class="nav-item">  --> 
+                        <h4>Contents</h4>
+                        <li><a href="#background"><strong>Background</strong></a></li>
+                        <li><a href="#how-to-use"><strong>How to use Missense3D-PTM</strong></a></li>
+                        <li><a href="#understanding-results"><strong>Understanding your results</strong></a></li>
+                    </ul>
+
+
+              </div>
+              <div class="col-sm-10" style="margin-left: 200px;">
+                <h1 class="border-bottom border-secondary">Documentation</h1><br>
+                <h4 id="background">Background</h4><hr>
+                <p>Post-translational modification (PTM) of proteins refers to the process of chemically altering a protein after it has been synthesized. 
+                  Often times these chemical alterations include covalent additions of lipids and carbohydrates to amino acid side chains, which consequently can diversify protein function and increase proteomic complexity. 
+                Genetic variation refers to the difference in DNA among individuals, which are often caused by mutations and genetic recombination. 
+                With the advancements of modern sequencing technology, over 324 million single-nucleotide polymorphisms<sup><a href="https://ncbiinsights.ncbi.nlm.nih.gov/2017/05/08/dbsnps-human-build-150-has-doubled-the-amount-of-refsnp-records/" target="_blank" title="Click here to go to source." data-toggle="tooltip">[1]</a></sup> have been identified, but determining whether these 
+                genetic variants have functional impact on phenotypes remains a challenge. Missense3D-PTM is a database that maps 139,695 PTMs and 8,739,608 missense variants across the set of 20,277 canonical proteins within the human proteome. 
+                Missense3D-PTM acts as a resource to identify PTM-specific missense mutations, which can allow researchers around the world to better understand the regulatory mechanisms impacted by their genetic variant of interest.</p>
+                <p>[1] U.S. National Library of Medicine. (2017, May 8). <i>DbSNP’s human build 150 has doubled the amount of refsnp records! - NCBI insights</i>. National Center for Biotechnology Information.
+                  <a href="https://ncbiinsights.ncbi.nlm.nih.gov/2017/05/08/dbsnps-human-build-150-has-doubled-the-amount-of-refsnp-records/" class="text-decoration-none" target="_blank" title="Click here to go to source." data-toggle="tooltip">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </a>
+                </p>
+                <br>
+                <h4 id="how-to-use">How to use Missense3D-PTM</h4><hr>
+                <p><strong>1.</strong> On the <a href="{% url 'home' %}" title="Click here to go back to the Home page." data-toggle = "tooltip">Home</a> page, users can submit an input form to query a position within their protein of interest. Here, users must input: </p>
+                <ul>
+                  <li>(1) UniProt ID <span style="color: red;"><strong>OR</strong></span> Gene Name: The primary accession UniProt ID <span style="color: red;"><strong>or</strong></span> recommended gene name for the protein of interest</li>
+                  <li>(2) Residue Position: The position within the fasta sequence of the canonical protein of interest from UniProt</li>
+                  <li>(3) Wild Type Residue: The wild type residue at the position inputted for the canonical protein of interest from UniProt</li>
+                </ul>
+                <p><strong>2. </strong>Hit the <input type="submit" value="Submit"> button.</p>
+                <p><strong>3. </strong>View your results!
+                <br><br>
+                <h4 id="understanding-results">Understanding your results</h4><hr>
+                <p>
+                  Results for a single query are preceeded first by the canonical Uniprot ID and associated gene name for the protein of interest. Alternative gene names are also displayed, and a link
+                  is provided to the protein's AlphaFold model for users to view if desired. An additional external link to UniProt Variant Viewer is also provided in the event that users would like to explore all variants associated with a UniProt ID.
+                </p>
+                <p style="text-align: center;">
+                  <img src="{% static 'dbQuery/images/generalInfo.png' %}" alt="General Info" style="text-align: center; max-width: 100%; height: auto;">
+                </p>
+                <h5 id="variant-results">Variant Results</h5><hr>
+                <p>
+                  A single query returns, if any, existing missense variants identified at the specified position on the canonical protein of interest.
+                  Variants are organized by mutant allele, such that a single row contains the queried position and wild type (WT) allele for a single variant alongside
+                  the respective mutant allele.
+                </p>
+                <p style="text-align: center;">
+                  <img src="{% static 'dbQuery/images/variantCollapsed.png' %}" alt="Variant Table Collapsed" style="text-align: center; max-width: 60%; height: auto;">
+                </p>
+                <p>
+                  Clicking the drop down arrow reveals all documented missense SNPs (Single Nucleotide Polymorphisms) for each mutant allele occuring at the queried position.
+                  A single mutant allele can have numerous SNP IDs associated with it, which are respectively displayed in individual rows. For each SNP ID, the table provides information on:
+                  <ul>
+                    <li>(1) <strong>Database</strong> - The corresponding database(s) the variant is found in</li>
+                    <li>(2) <strong>Clinical Significance</strong> - Any predicted or determined clinical pathogenicity associated with the variant</li>
+                    <li>(3) <strong>OMIM ID</strong> -
+                      <a href="https://www.omim.org/" class="text-decoration-none" target="_blank">
+                      OMIM (Online Mendelian Inheritance in Man)
+                        <i class="bi bi-box-arrow-up-right"></i>
+                      </a>
+                      source ID for variant-associated phenotype</li>
+                    <li>(4) <strong>Sources</strong> - 
+                      
+                      <a href="https://pubmed.ncbi.nlm.nih.gov/" class="text-decoration-none" target="_blank">
+                        PubMed
+                        <i class="bi bi-box-arrow-up-right"></i>
+                      </a>
+                        source ID(s) for suggested clinical association of the variant
+                  </ul>
+                  <p style="text-align: center;">
+                    <img src="{% static 'dbQuery/images/variantTables.png' %}" alt="Image Description" style="text-align: center; max-width: 80%; height: auto;">
+
+                  </p>
+                  <p>
+                    For non-standard amino acid changes, the following symbols are used in reflection of standard
+                    <a href="https://hgvs-nomenclature.org/stable/recommendations/protein/substitution/" class="text-decoration-none" target="_blank">
+                      Human Genome Variation Society (HGVS) nomenclature
+                      <i class="bi bi-box-arrow-up-right"></i>
+                      </a>
+                    of missense variants:
+                  </p>
+                  <ul>
+                    <li> <strong>*</strong>  - Indicates a termination</li>
+                    <li> <strong>?</strong>  - Indicates that the consequence of a variant, at protein level, is unknown</li>
+                    <li> <strong>=</strong>  - Indicates that the amino acid is likely unchanged</li>
+                  </ul>
+                  <p> Any other non-standard changes are indicated by an <strong>X</strong>; further research on the background and literature of the specific variant is recommended.
+                </p>
+                <br><br>
+                <h5 id="ptm-results">PTM Results</h5><hr>
+                <p>
+                  Any PTM sites occuring at the queried position are returned as shown below, along with source information detailing which database the PTM can be found in. If numerous PTM types
+                  exist at the queried position, they are listed as a separate row.
+                </p>
+                <p style="text-align: center;">
+                  <img src="{% static 'dbQuery/images/ptm_expanded.png' %}" alt="PTM source expanded" style="text-align: center; max-width: 60%; height: auto;">
+
+                </p>
+                <p>
+                  Further information on PTM modifications for protein entries that have no positional information available are provided in a free-text format. Each text description is followed by a Source button, which when clicked on expands beneath the text description to display a full list of linked sources associated with the description as seen below. These non-positional PTM text information serve to enrich the overall annotations for a particular protein and provide users with more functional significance and biological context of each PTM
+                </p>
+                <p style="text-align: center;">
+                  <img src="{% static 'dbQuery/images/additionalPTMText_fig.png' %}" alt="Image Description" style="max-width: 60%; height: auto;">
+                </p>
+                <br></br>
+                <h5 id="topology-results">Topology Results</h5><hr>
+                <p>
+                  Results also display topology information for the queried protein.
+                  The table displays the positions of the topological domains as well as the domain type, if it exists, for the protein.
+                </p>
+                <p style="text-align: center;">
+                  <img src="{% static 'dbQuery/images/topologyRes.png' %}" alt="Image Description" style="max-width: 60%; height: auto;">
+                </p>
+                <h5 id="ptm-var-results">PTM & Variant Co-site Results</h5><hr>
+                <p>
+                  Within the Results page, besides the user’s queried position, other potentially relevant information pertaining to the queried protein is displayed. In particular, all of the positions with a known PTM and variant at the same site are displayed alongside the corresponding wild type residue, mutant residue, variant SNP IDs associated with the mutant, and PTM type. This information is particularly useful as it can provide valuable insights into the functional consequences, disease mechanisms, regulatory mechanisms, etc. for a particular PTM and/or variant. Similar to the other results, the PTM & Variant Co-site results are displayed in an interactive table with tooltip features and a dynamic expand/collapse button to enhance the UI/UX. In addition to these features, the ability to (1) filter the table by the PTM type and (2) select positions from the table to be displayed on the protein’s 3D structure have also been incorporated into the interactive design of the table.
+                </p>
+                <p style="text-align: center;">
+                  <img src="{% static 'dbQuery/images/ptmVarCosite_features.png' %}" alt="Image Description" style="max-width: 60%; height: auto;">
+                </p>
+                <h5 id="jsmol-results">Protein Structure Information</h5><hr>
+                <span>
+                  The JSmol section on the Results page is designed to demonstrate the structure and topology of the queried protein. The figure below illustrates the comprehensive layout of the JSmol section within the Results interface. 
+                  Starting with the JSmol applet at the top, users are provided with the AlphaFold-generated model of the protein. This setup allows for an in-depth exploration of regional details through rotation and zooming into the 3D
+                  model. Distinct sections of the protein are distinguished by different colour coding — <span style=" border-bottom: 1px solid lightblue;">light blue</span>
+                  for extracellular regions, <span style=" border-bottom: 1px solid violet;">violet</span> for intracellular regions, <span style=" border-bottom: 1px solid aqua;">aqua</span> for transmembrane regions, and <span style=" border-bottom: 1px solid grey;">grey</span> for other unspecified areas — facilitating a visual understanding of the protein’s topological features.
+                </span>
+                <p style="text-align: center;">
+                  <img src="{% static 'dbQuery/images/jsmolFullWindow.png' %}" alt="Image Description" style="max-width: 80%; height: auto;">
+                </p>
+                Beneath the JSmol applet lies the control panel, where users can execute additional commands. While the target residue is automatically coloured in orange, users may find it challenging to locate, especially within large and complex proteins. 
+                To address this, a button is inserted to center the view on the target position and highlight the specific residue by its atomic surface (as seen in Panel C). Furthermore, users have the option to switch between different display modes for the model by activating or deactivating the Space-filling feature as seen in Panel B & D.
+                By default, the JSmol applet shows the protein in animated mode where residues are linearised to focus on the protein’s secondary structure. In contrast, the Space-fill button shows the atomic backbone of the protein, providing more detailed structural information at the residue level. Notice that the query residue can be highlighted regardless of the space- filling status, which offers additional flexibility to visualise the residue of interest.
+                Lastly, a reset button is available to reload the JSmol applet with its default settings. This ensures that users can start the presentation afresh without having to manually undo previous adjustments.
+                <p style="text-align: center;">
+                  <img src="{% static 'dbQuery/images/jsmol_butttonFeatures.png' %}" alt="JSmol button features" style="max-width: 40%; height: auto;">
+                </p>
+                The sequence viewer is designed to complement the use of the AlphaFold model thus it is interactively connected to the JSmol applet. This integration allows users to select and mark positions of interest on the sequence viewer, while the corresponding residues are simultaneously highlighted in the AlphaFold model. The marking and highlighting can be either temporary or permanent, depending on the user’s actions: hovering over the sequence adds temporary marking and highlighting following the cursor movement, clicking on the sequence, however, locks the effects on the interface and the JSmol applet until the same residue is clicked again as seen below. Multiple residues can be highlighted simultaneously.
+                <p style="text-align: center;">
+                  <img src="{% static 'dbQuery/images/jsmolSelectSeq.png' %}" alt="JSmol select seq" style="max-width: 40%; height: auto;">
+                </p>
+                The lower half of the JSmol area features a sequence viewer, enabling users to compare the residues’ sequential positions with their structural positions as depicted in the JSmol applet. By default, this interface is collapsed to prevent an long protein sequence from overly extending the Results page. However, users have the option to expand this section to view the complete protein sequence. 
+                The sequence is colour-coded according to the protein’s topology, mirroring the same colouring scheme applied previously in the AlphaFold model. 
+                Additional protein information can be accessed via two buttons located at the bottom of the sequence interface.
+               These buttons reveal the locations of additional variants and PTM sites on the protein as seen below. 
+               Because they are designed independently with unique displaying effects, users can activate them jointly to locate residues of combined interests.
+               <p style="text-align: center;">
+                <img src="{% static 'dbQuery/images/highlightPTMandVar.png' %}" alt="Highlight PTM and Var" style="max-width: 60%; height: auto;">
+              </p>
+              A distance slider is positioned between the JSmol buttons and the sequence viewer to control the display of neighbouring residues around the target position. This slider displays residues within specified distance ranges from the target position in 3D space, measured in Angstroms. The distance is calculated as the straight line connecting the α-carbon atoms of the target residue and other nearby residues. The slider offers six levels, corresponding to distances ranging from a minimum of 5 ̊A to a maximum of 30 ̊A. The figure below illustrates the effects of different slider levels, in this case, comparing 5 ̊A to 25 ̊A, on the protein model displayed in JSmol.
+              Adjusting the slider level also directly impacts the sequence interface: residues within the current distance range limit are dynamically marked in the sequence viewer. This helps users identify specific residues of interest adjacent to the target residue. Furthermore, like all other JSmol functionalities developed in this project, the distance slider’s effects do not conflict with other existing effects, allowing users to customize their experience by combining various functionalities. For instance, users can first highlight specific residues of interest and then use the distance slider to determine their distance from the target position.
+              <p style="text-align: center;">
+                <img src="{% static 'dbQuery/images/jsmol_sliderV2.png' %}" alt="Highlight PTM and Var" style="max-width: 60%; height: auto;">
+              </p> 
+              <p>
+                  <i><strong>Note:</strong> The JSMol Viewer will not dispaly proteins longer than 2,700 amino acids.</i>
+                </p>
+
+          </div>
+
+          </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+
+
+
+
+{% endblock %}

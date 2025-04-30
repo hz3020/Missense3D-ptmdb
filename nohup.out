@@ -1,0 +1,627 @@
+Unknown command: 'runserver:20241'. Did you mean runserver?
+Type 'manage.py help' for usage.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 20, 2024 - 14:25:26
+Django version 3.2.12, using settings 'variantPSite.settings'
+Starting development server at http://0:20241/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 20, 2024 - 14:26:01
+Django version 3.2.12, using settings 'variantPSite.settings'
+Starting development server at http://0:20241/
+Quit the server with CONTROL-C.
+[20/Nov/2024 14:33:26] "GET / HTTP/1.1" 200 21687
+[20/Nov/2024 14:33:26] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 200 62645
+[20/Nov/2024 14:33:26] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 200 38010
+Not Found: /favicon.ico
+[20/Nov/2024 14:33:26] "GET /favicon.ico HTTP/1.1" 404 3530
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[20/Nov/2024 14:33:31] "POST /process_form/ HTTP/1.1" 200 372326
+[20/Nov/2024 14:33:32] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[20/Nov/2024 14:33:32] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corejmol.z.js HTTP/1.1" 200 1409212
+[20/Nov/2024 14:33:32] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[20/Nov/2024 14:33:32] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[20/Nov/2024 14:34:45] "GET /static/dbQuery/jsmol/jsmol/j2s/core/coretext.z.js HTTP/1.1" 200 67685
+[21/Nov/2024 10:36:34] code 400, message Bad request version ('\x15é9ñ²\x84')
+[21/Nov/2024 10:36:34] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[21/Nov/2024 10:36:34] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x12\x00\x00\x003\x04ï\x04í\x1a\x1a\x00\x01\x00c\x99\x04À\x02\\Ø\x87\x131ñà>å¬ý\x87þ')
+[21/Nov/2024 10:36:34] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[21/Nov/2024 10:36:34] "GET / HTTP/1.1" 200 21687
+[21/Nov/2024 10:36:34] "GET /static/dbQuery/css/custom.css HTTP/1.1" 200 9801
+[21/Nov/2024 10:36:34] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 200 38010
+[21/Nov/2024 10:36:34] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 200 62645
+[21/Nov/2024 10:36:35] "GET /static/dbQuery/images/bg1-mdgrey.png HTTP/1.1" 200 7684
+Not Found: /favicon.ico
+[21/Nov/2024 10:36:35] "GET /favicon.ico HTTP/1.1" 404 3530
+[21/Nov/2024 10:37:31] "GET / HTTP/1.1" 200 21687
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[21/Nov/2024 10:37:34] "POST /process_form/ HTTP/1.1" 200 372326
+[21/Nov/2024 10:37:34] "GET /static/dbQuery/css/jsmol.css HTTP/1.1" 200 864
+[21/Nov/2024 10:37:34] "GET /static/dbQuery/jsmol/jsmol/js/Jmol2.js HTTP/1.1" 200 15530
+[21/Nov/2024 10:37:34] "GET /static/dbQuery/jsmol/jsmol/js/JSmol.js HTTP/1.1" 200 19144
+[21/Nov/2024 10:37:34] "GET /static/dbQuery/jsmol/jsmol/js/JSmolCore.js HTTP/1.1" 200 89445
+[21/Nov/2024 10:37:34] "GET /static/dbQuery/images/jsmolLegend.png HTTP/1.1" 200 257964
+[21/Nov/2024 10:37:34] "GET /static/dbQuery/jsmol/jsmol/JSmol.min.js HTTP/1.1" 200 620178
+[21/Nov/2024 10:37:35] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[21/Nov/2024 10:37:35] "GET /static/dbQuery/jsmol/jsmol/j2s/img/cursor_wait.gif HTTP/1.1" 200 673
+[21/Nov/2024 10:37:35] "GET /static/dbQuery/jsmol/jsmol/j2s/core/package.js HTTP/1.1" 200 7218
+[21/Nov/2024 10:37:35] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corejmol.z.js HTTP/1.1" 200 1409212
+[21/Nov/2024 10:37:35] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corescript.z.js HTTP/1.1" 200 349605
+[21/Nov/2024 10:37:35] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[21/Nov/2024 10:37:35] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[21/Nov/2024 10:37:35] "GET /static/dbQuery/jsmol/jsmol/j2s/JV/StateCreator.js HTTP/1.1" 200 49705
+[21/Nov/2024 10:37:35] "GET /static/dbQuery/jsmol/jsmol/j2s/JV/JmolStateCreator.js HTTP/1.1" 200 146
+[21/Nov/2024 10:37:36] "GET /static/dbQuery/alphafold_pdb/AF-Q03431-F1-model_v4.pdb HTTP/1.1" 200 386612
+[21/Nov/2024 10:37:36] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corebio.z.js HTTP/1.1" 200 184006
+[21/Nov/2024 10:37:36] "GET /static/dbQuery/jsmol/jsmol/j2s/J/g3d/HermiteRenderer.js HTTP/1.1" 200 12818
+[21/Nov/2024 10:37:39] "GET /static/dbQuery/jsmol/jsmol/j2s/J/shapespecial/Dots.js HTTP/1.1" 200 6824
+[21/Nov/2024 10:37:39] "GET /static/dbQuery/jsmol/jsmol/j2s/J/geodesic/EnvelopeCalculation.js HTTP/1.1" 200 12532
+[21/Nov/2024 10:37:39] "GET /static/dbQuery/jsmol/jsmol/j2s/J/api/JmolEnvCalc.js HTTP/1.1" 200 118
+[21/Nov/2024 10:37:39] "GET /static/dbQuery/jsmol/jsmol/j2s/J/renderspecial/DotsRenderer.js HTTP/1.1" 200 2976
+[21/Nov/2024 10:37:43] "GET / HTTP/1.1" 200 21687
+[21/Nov/2024 10:37:43] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 200 62645
+[21/Nov/2024 10:37:43] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 200 38010
+Not Found: /favicon.ico
+[21/Nov/2024 10:37:44] "GET /favicon.ico HTTP/1.1" 404 3530
+  uniprot_id        snp_id  position wt  ... region_number  start    end wt_check
+0     O15118  RCV000414597       734  S  ...            12  731.0  751.0     True
+1     O15118  RCV000667438       734  S  ...            12  731.0  751.0     True
+2     O15118   rs757475924       734  S  ...            12  731.0  751.0     True
+3     O15118    VAR_043230       734  S  ...            12  731.0  751.0     True
+
+[4 rows x 16 columns]
+ptmVarCosite
+    Position  ...                                             snp_id
+0         70  ...                                       [COSM987098]
+1         70  ...          [RCV000731921, RCV001369012, rs200291759]
+2        122  ...                                     [rs1448273242]
+3        135  ...                                     [rs1198731697]
+4        185  ...                        [RCV001245521, rs139485263]
+5        222  ...                                      [rs773603273]
+6        222  ...  [RCV000078485, RCV000254118, RCV000509165, RCV...
+7        478  ...                                      [rs767984882]
+8        557  ...                                      [rs772427096]
+9        598  ...                                     [rs1253283198]
+10       598  ...                                      [rs201236716]
+11       916  ...                                     [rs1270245521]
+12       916  ...          [RCV000415351, RCV000591193, rs756815669]
+13       931  ...                                        [rs1140458]
+14       931  ...                                      [rs774579664]
+15       961  ...                                      [rs766770645]
+16       961  ...  [RCV000239155, RCV000671674, rs34084984, VAR_0...
+17       968  ...  [RCV000670723, RCV002222596, rs773767253, VAR_...
+18      1072  ...                                     [rs1366505622]
+
+[19 rows x 5 columns]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[21/Nov/2024 10:37:56] "POST /process_form/ HTTP/1.1" 200 727967
+[21/Nov/2024 10:37:56] "GET /static/dbQuery/images/jsmolLegend.png HTTP/1.1" 200 257964
+[21/Nov/2024 10:37:56] "GET /static/dbQuery/css/jsmol.css HTTP/1.1" 200 864
+[21/Nov/2024 10:37:56] "GET /static/dbQuery/jsmol/jsmol/JSmol.min.js HTTP/1.1" 200 620178
+[21/Nov/2024 10:37:56] "GET /static/dbQuery/jsmol/jsmol/js/Jmol2.js HTTP/1.1" 200 15530
+[21/Nov/2024 10:37:56] "GET /static/dbQuery/jsmol/jsmol/js/JSmol.js HTTP/1.1" 200 19144
+[21/Nov/2024 10:37:57] "GET /static/dbQuery/jsmol/jsmol/js/JSmolCore.js HTTP/1.1" 200 89445
+[21/Nov/2024 10:37:57] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[21/Nov/2024 10:37:57] "GET /static/dbQuery/jsmol/jsmol/j2s/img/cursor_wait.gif HTTP/1.1" 200 673
+[21/Nov/2024 10:37:58] "GET /static/dbQuery/jsmol/jsmol/j2s/core/package.js HTTP/1.1" 200 7218
+[21/Nov/2024 10:37:58] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corejmol.z.js HTTP/1.1" 200 1409212
+[21/Nov/2024 10:37:59] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corescript.z.js HTTP/1.1" 200 349605
+[21/Nov/2024 10:37:59] "GET /static/dbQuery/jsmol/jsmol/j2s/JV/StateCreator.js HTTP/1.1" 200 49705
+[21/Nov/2024 10:38:00] "GET /static/dbQuery/jsmol/jsmol/j2s/JV/JmolStateCreator.js HTTP/1.1" 200 146
+[21/Nov/2024 10:38:00] "GET /static/dbQuery/alphafold_pdb/AF-O15118-F1-model_v4.pdb HTTP/1.1" 200 821582
+[21/Nov/2024 10:38:00] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corebio.z.js HTTP/1.1" 200 184006
+[21/Nov/2024 10:38:02] "GET /static/dbQuery/jsmol/jsmol/j2s/J/g3d/HermiteRenderer.js HTTP/1.1" 200 12818
+[21/Nov/2024 10:38:13] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corescriptmath.z.js HTTP/1.1" 200 73278
+[21/Nov/2024 10:38:22] "GET /static/dbQuery/jsmol/jsmol/j2s/core/coretext.z.js HTTP/1.1" 200 67685
+[21/Nov/2024 10:38:38] "GET /static/dbQuery/jsmol/jsmol/j2s/J/shapespecial/Dots.js HTTP/1.1" 200 6824
+[21/Nov/2024 10:38:38] "GET /static/dbQuery/jsmol/jsmol/j2s/J/geodesic/EnvelopeCalculation.js HTTP/1.1" 200 12532
+[21/Nov/2024 10:38:38] "GET /static/dbQuery/jsmol/jsmol/j2s/J/api/JmolEnvCalc.js HTTP/1.1" 200 118
+[21/Nov/2024 10:38:38] "GET /static/dbQuery/jsmol/jsmol/j2s/J/renderspecial/DotsRenderer.js HTTP/1.1" 200 2976
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[21/Nov/2024 10:39:28] "POST /process_form/ HTTP/1.1" 200 372326
+[21/Nov/2024 10:39:29] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[21/Nov/2024 10:39:29] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[21/Nov/2024 10:39:29] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[21/Nov/2024 10:39:52] "GET / HTTP/1.1" 200 21687
+[21/Nov/2024 10:41:48] "GET / HTTP/1.1" 200 21687
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[21/Nov/2024 10:41:58] "POST /process_form/ HTTP/1.1" 200 372326
+[21/Nov/2024 10:41:58] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[21/Nov/2024 10:41:59] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[21/Nov/2024 10:41:59] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[21/Nov/2024 10:42:36] "GET / HTTP/1.1" 200 21687
+[21/Nov/2024 10:42:36] "GET /static/dbQuery/css/custom.css HTTP/1.1" 200 9801
+[21/Nov/2024 10:42:36] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 200 38010
+[21/Nov/2024 10:42:36] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 200 62645
+[21/Nov/2024 10:42:37] "GET /static/dbQuery/images/bg1-mdgrey.png HTTP/1.1" 200 7684
+Not Found: /favicon.ico
+[21/Nov/2024 10:42:37] "GET /favicon.ico HTTP/1.1" 404 3530
+[21/Nov/2024 10:45:10] "GET / HTTP/1.1" 200 21687
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[21/Nov/2024 10:45:13] "POST /process_form/ HTTP/1.1" 200 372326
+[21/Nov/2024 10:45:14] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[21/Nov/2024 10:45:15] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[21/Nov/2024 10:45:15] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[21/Nov/2024 10:45:22] "GET / HTTP/1.1" 200 21687
+  uniprot_id        snp_id  position wt  ... region_number  start     end wt_check
+0     P00533  rs1167057229       678  T  ...             3  669.0  1210.0     True
+1     P00533  RCV000709011       678  T  ...             3  669.0  1210.0     True
+2     P00533  RCV001215248       678  T  ...             3  669.0  1210.0     True
+3     P00533   rs138193597       678  T  ...             3  669.0  1210.0     True
+
+[4 rows x 16 columns]
+ptmVarCosite
+    Position  ...                                             snp_id
+0         56  ...                                      [rs767259994]
+1         73  ...                                     [rs1269583681]
+2        196  ...                        [RCV001231471, rs766507267]
+3        229  ...                                      [COSM3412174]
+4        229  ...                                     [rs1247276424]
+..       ...  ...                                                ...
+56      1162  ...  [RCV000120700, RCV000860973, RCV002505060, rs4...
+57      1162  ...                        [RCV001345675, rs766347941]
+58      1191  ...                                     [RCV001321254]
+59      1191  ...                        [RCV001233420, rs372948989]
+60      1199  ...                        [RCV001339672, rs768074018]
+
+[61 rows x 5 columns]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[21/Nov/2024 10:45:42] "POST /process_form/ HTTP/1.1" 200 896608
+[21/Nov/2024 10:45:42] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[21/Nov/2024 10:45:43] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[21/Nov/2024 10:45:43] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[21/Nov/2024 10:45:43] "GET /static/dbQuery/alphafold_pdb/AF-P00533-F1-model_v4.pdb HTTP/1.1" 200 772334
+[21/Nov/2024 11:00:07] "GET / HTTP/1.1" 200 21687
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[21/Nov/2024 11:00:10] "POST /process_form/ HTTP/1.1" 200 372326
+[21/Nov/2024 11:00:11] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[21/Nov/2024 11:00:11] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[21/Nov/2024 11:00:11] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[21/Nov/2024 11:00:55] "GET /static/dbQuery/jsmol/jsmol/j2s/core/coremenu.z.js HTTP/1.1" 200 74867
+[21/Nov/2024 11:00:55] "GET /static/dbQuery/jsmol/jsmol/j2s/core/coreswing.z.js HTTP/1.1" 200 57822
+[21/Nov/2024 11:00:55] "GET /static/dbQuery/jsmol/jsmol/j2s/core/coretext.z.js HTTP/1.1" 200 67685
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[21/Nov/2024 11:07:53] "POST /process_form/ HTTP/1.1" 200 372326
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/images/jsmolLegend.png HTTP/1.1" 200 257964
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/css/jsmol.css HTTP/1.1" 200 864
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/js/Jmol2.js HTTP/1.1" 200 15530
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/js/JSmol.js HTTP/1.1" 200 19144
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/JSmol.min.js HTTP/1.1" 200 620178
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/js/JSmolCore.js HTTP/1.1" 200 89445
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/j2s/img/cursor_wait.gif HTTP/1.1" 200 673
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/j2s/core/package.js HTTP/1.1" 200 7218
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corejmol.z.js HTTP/1.1" 200 1409212
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corescript.z.js HTTP/1.1" 200 349605
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/idioma/en_GB.po HTTP/1.1" 404 1871
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/j2s/JV/StateCreator.js HTTP/1.1" 200 49705
+[21/Nov/2024 11:07:53] "GET /static/dbQuery/jsmol/jsmol/j2s/JV/JmolStateCreator.js HTTP/1.1" 200 146
+[21/Nov/2024 11:07:54] "GET /static/dbQuery/alphafold_pdb/AF-Q03431-F1-model_v4.pdb HTTP/1.1" 200 386612
+[21/Nov/2024 11:07:54] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corebio.z.js HTTP/1.1" 200 184006
+[21/Nov/2024 11:07:54] "GET /static/dbQuery/jsmol/jsmol/j2s/J/g3d/HermiteRenderer.js HTTP/1.1" 200 12818
+Not Found: /favicon.ico
+[21/Nov/2024 11:07:54] "GET /favicon.ico HTTP/1.1" 404 3530
+[21/Nov/2024 11:08:24] "GET /static/dbQuery/jsmol/jsmol/j2s/J/shapespecial/Dots.js HTTP/1.1" 200 6824
+[21/Nov/2024 11:08:24] "GET /static/dbQuery/jsmol/jsmol/j2s/J/geodesic/EnvelopeCalculation.js HTTP/1.1" 200 12532
+[21/Nov/2024 11:08:24] "GET /static/dbQuery/jsmol/jsmol/j2s/J/api/JmolEnvCalc.js HTTP/1.1" 200 118
+[21/Nov/2024 11:08:24] "GET /static/dbQuery/jsmol/jsmol/j2s/J/renderspecial/DotsRenderer.js HTTP/1.1" 200 2976
+[21/Nov/2024 11:08:58] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corescriptmath.z.js HTTP/1.1" 200 73278
+[21/Nov/2024 11:09:06] "GET /documentation/ HTTP/1.1" 200 25836
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/generalInfo.png HTTP/1.1" 200 150449
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/variantCollapsed.png HTTP/1.1" 200 43004
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/ptm_expanded.png HTTP/1.1" 200 313076
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/topologyRes.png HTTP/1.1" 200 273002
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/variantTables.png HTTP/1.1" 200 628706
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/additionalPTMText_fig.png HTTP/1.1" 200 828824
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/ptmVarCosite_features.png HTTP/1.1" 200 632630
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/jsmolFullWindow.png HTTP/1.1" 200 799596
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/jsmol_butttonFeatures.png HTTP/1.1" 200 1341598
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/jsmolSelectSeq.png HTTP/1.1" 200 1173673
+[21/Nov/2024 11:09:06] "GET /static/dbQuery/images/highlightPTMandVar.png HTTP/1.1" 200 1340477
+[21/Nov/2024 11:09:07] "GET /static/dbQuery/images/jsmol_sliderV2.png HTTP/1.1" 200 1154150
+[21/Nov/2024 11:09:14] "GET /dataset/ HTTP/1.1" 200 25852729
+[21/Nov/2024 11:09:25] "GET /contact/ HTTP/1.1" 200 8544
+[21/Nov/2024 11:09:35] "GET /dataset/ HTTP/1.1" 200 25852729
+[21/Nov/2024 11:09:35] "GET /documentation/ HTTP/1.1" 200 25836
+[21/Nov/2024 11:09:41] "GET / HTTP/1.1" 200 21687
+[21/Nov/2024 11:11:13] "GET / HTTP/1.1" 200 21687
+[21/Nov/2024 11:11:14] "GET /static/dbQuery/images/bg1-mdgrey.png HTTP/1.1" 200 7684
+[23/Nov/2024 23:51:00] "GET / HTTP/1.1" 200 21687
+[23/Nov/2024 23:51:00] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 200 62645
+[23/Nov/2024 23:51:00] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 200 38010
+[23/Nov/2024 23:51:44] "GET / HTTP/1.1" 200 21687
+[24/Nov/2024 22:19:46] "GET / HTTP/1.1" 200 21687
+[24/Nov/2024 22:19:46] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 304 0
+[24/Nov/2024 22:19:46] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 304 0
+Not Found: /favicon.ico
+[24/Nov/2024 22:19:47] "GET /favicon.ico HTTP/1.1" 404 3530
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[24/Nov/2024 22:20:12] "POST /process_form/ HTTP/1.1" 200 372326
+[24/Nov/2024 22:20:12] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[24/Nov/2024 22:20:13] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[24/Nov/2024 22:20:13] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[24/Nov/2024 22:20:42] "GET /static/dbQuery/jsmol/jsmol/j2s/J/shapespecial/Dots.js HTTP/1.1" 200 6824
+[24/Nov/2024 22:20:42] "GET /static/dbQuery/jsmol/jsmol/j2s/J/geodesic/EnvelopeCalculation.js HTTP/1.1" 200 12532
+[24/Nov/2024 22:20:42] "GET /static/dbQuery/jsmol/jsmol/j2s/J/api/JmolEnvCalc.js HTTP/1.1" 200 118
+[24/Nov/2024 22:20:42] "GET /static/dbQuery/jsmol/jsmol/j2s/J/renderspecial/DotsRenderer.js HTTP/1.1" 200 2976
+[24/Nov/2024 22:21:25] "GET / HTTP/1.1" 200 21687
+[24/Nov/2024 22:21:56] "GET /dataset/ HTTP/1.1" 200 25852729
+[24/Nov/2024 22:22:13] "GET / HTTP/1.1" 200 21687
+[24/Nov/2024 22:26:31] "GET / HTTP/1.1" 200 21687
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[24/Nov/2024 22:29:55] "POST /process_form/ HTTP/1.1" 200 372326
+[24/Nov/2024 22:29:56] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[24/Nov/2024 22:29:56] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[24/Nov/2024 22:29:56] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[25/Nov/2024 13:15:14] "GET / HTTP/1.1" 200 21687
+[25/Nov/2024 13:15:14] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 304 0
+[25/Nov/2024 13:15:14] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 304 0
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[25/Nov/2024 13:15:17] "POST /process_form/ HTTP/1.1" 200 372326
+[25/Nov/2024 13:15:18] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[25/Nov/2024 13:15:18] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corejmol.z.js HTTP/1.1" 304 0
+[25/Nov/2024 13:15:18] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[25/Nov/2024 13:15:18] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[25/Nov/2024 14:23:02] "GET / HTTP/1.1" 200 21687
+[25/Nov/2024 17:05:51] "GET / HTTP/1.1" 200 21687
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[25/Nov/2024 17:06:52] "POST /process_form/ HTTP/1.1" 200 372326
+[25/Nov/2024 17:06:52] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[25/Nov/2024 17:06:52] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[25/Nov/2024 17:06:52] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+  uniprot_id        snp_id  position wt  ... region_number  start     end wt_check
+0     P00533  rs1167057229       678  T  ...             3  669.0  1210.0     True
+1     P00533  RCV000709011       678  T  ...             3  669.0  1210.0     True
+2     P00533  RCV001215248       678  T  ...             3  669.0  1210.0     True
+3     P00533   rs138193597       678  T  ...             3  669.0  1210.0     True
+
+[4 rows x 16 columns]
+ptmVarCosite
+    Position  ...                                             snp_id
+0         56  ...                                      [rs767259994]
+1         73  ...                                     [rs1269583681]
+2        196  ...                        [RCV001231471, rs766507267]
+3        229  ...                                      [COSM3412174]
+4        229  ...                                     [rs1247276424]
+..       ...  ...                                                ...
+56      1162  ...  [RCV000120700, RCV000860973, RCV002505060, rs4...
+57      1162  ...                        [RCV001345675, rs766347941]
+58      1191  ...                                     [RCV001321254]
+59      1191  ...                        [RCV001233420, rs372948989]
+60      1199  ...                        [RCV001339672, rs768074018]
+
+[61 rows x 5 columns]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[25/Nov/2024 17:07:14] "POST /process_form/ HTTP/1.1" 200 896608
+[25/Nov/2024 17:07:14] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[25/Nov/2024 17:07:14] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[25/Nov/2024 17:07:15] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[25/Nov/2024 17:11:23] "GET /static/dbQuery/jsmol/jsmol/j2s/core/coretext.z.js HTTP/1.1" 304 0
+[25/Nov/2024 17:13:31] "GET /download_excel/ HTTP/1.1" 200 161699
+  uniprot_id        snp_id  position wt  ... region_number  start     end wt_check
+0     P00533  rs1167057229       678  T  ...             3  669.0  1210.0     True
+1     P00533  RCV000709011       678  T  ...             3  669.0  1210.0     True
+2     P00533  RCV001215248       678  T  ...             3  669.0  1210.0     True
+3     P00533   rs138193597       678  T  ...             3  669.0  1210.0     True
+
+[4 rows x 16 columns]
+ptmVarCosite
+    Position  ...                                             snp_id
+0         56  ...                                      [rs767259994]
+1         73  ...                                     [rs1269583681]
+2        196  ...                        [RCV001231471, rs766507267]
+3        229  ...                                      [COSM3412174]
+4        229  ...                                     [rs1247276424]
+..       ...  ...                                                ...
+56      1162  ...  [RCV000120700, RCV000860973, RCV002505060, rs4...
+57      1162  ...                        [RCV001345675, rs766347941]
+58      1191  ...                                     [RCV001321254]
+59      1191  ...                        [RCV001233420, rs372948989]
+60      1199  ...                        [RCV001339672, rs768074018]
+
+[61 rows x 5 columns]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[25/Nov/2024 17:14:01] "POST /process_form/ HTTP/1.1" 200 896608
+[25/Nov/2024 17:14:02] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[25/Nov/2024 17:14:02] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[25/Nov/2024 17:14:02] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[25/Nov/2024 17:14:03] "GET /static/dbQuery/jsmol/jsmol/j2s/core/coremenu.z.js HTTP/1.1" 200 74867
+[25/Nov/2024 17:14:03] "GET /static/dbQuery/jsmol/jsmol/j2s/core/coreswing.z.js HTTP/1.1" 200 57822
+[26/Nov/2024 13:09:45] "GET / HTTP/1.1" 200 21687
+[26/Nov/2024 13:09:45] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 304 0
+[26/Nov/2024 13:09:45] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 304 0
+[26/Nov/2024 14:13:19] "GET / HTTP/1.1" 200 21687
+[28/Nov/2024 19:52:01] "GET / HTTP/1.1" 200 21687
+[28/Nov/2024 19:52:01] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 304 0
+[28/Nov/2024 19:52:01] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 304 0
+[29/Nov/2024 05:25:20] "GET / HTTP/1.1" 200 21687
+[02/Dec/2024 08:57:07] "GET / HTTP/1.1" 200 21687
+[02/Dec/2024 08:57:07] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 304 0
+[02/Dec/2024 08:57:08] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 304 0
+  uniprot_id        snp_id  position wt  ... region_number start    end wt_check
+0     Q03431   rs139017205       176  N  ...             1  27.0  188.0     True
+1     Q03431  RCV000054587       176  N  ...             1  27.0  188.0     True
+2     Q03431   rs387907457       176  N  ...             1  27.0  188.0     True
+
+[3 rows x 16 columns]
+ptmVarCosite
+   Position wt_residue mutant         ptm_type                       snp_id
+0       151          N      S    Glycosylation               [rs1204634243]
+1       176          N      S    Glycosylation                [rs139017205]
+2       176          N      Y    Glycosylation  [RCV000054587, rs387907457]
+3       551          T      I  Phosphorylation               [rs1468969911]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[02/Dec/2024 08:57:12] "POST /process_form/ HTTP/1.1" 200 372326
+[02/Dec/2024 08:57:12] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[02/Dec/2024 08:57:13] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corejmol.z.js HTTP/1.1" 304 0
+[02/Dec/2024 08:57:13] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_CN.po HTTP/1.1" 404 1871
+[02/Dec/2024 08:57:13] "GET /static/dbQuery/jsmol/jsmol/idioma/zh_TW.po HTTP/1.1" 404 1871
+[12/Dec/2024 16:16:26] code 400, message Bad request version (',\x8c')
+[12/Dec/2024 16:16:26] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Dec/2024 16:16:26] code 400, message Bad request version ('hæc')
+[12/Dec/2024 16:16:26] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Dec/2024 16:16:26] "GET / HTTP/1.1" 200 21687
+[12/Dec/2024 16:16:26] "GET /static/dbQuery/images/missense3d_logo_PTM-db_white.png HTTP/1.1" 200 62645
+[12/Dec/2024 16:16:26] "GET /static/dbQuery/css/custom.css HTTP/1.1" 200 9801
+[12/Dec/2024 16:16:26] "GET /static/dbQuery/images/Imperial_new_logo-white.png HTTP/1.1" 200 38010
+[12/Dec/2024 16:16:26] "GET /static/dbQuery/images/bg1-mdgrey.png HTTP/1.1" 200 7684
+Not Found: /favicon.ico
+[12/Dec/2024 16:16:27] "GET /favicon.ico HTTP/1.1" 404 3530
+[12/Dec/2024 16:16:31] "GET / HTTP/1.1" 200 21687
+[12/Dec/2024 16:16:31] code 400, message Bad request version ('ªª\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06«úú\x00\x00Di\x00\x05\x00\x03\x02h2\x00')
+[12/Dec/2024 16:16:31] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Dec/2024 16:16:31] code 400, message Bad request version ('»¿\x13\x9aJ¢ª\x10s')
+[12/Dec/2024 16:16:31] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+  uniprot_id        snp_id  position wt  ... region_number  start     end wt_check
+0     P00533  rs1167057229       678  T  ...             3  669.0  1210.0     True
+1     P00533  RCV000709011       678  T  ...             3  669.0  1210.0     True
+2     P00533  RCV001215248       678  T  ...             3  669.0  1210.0     True
+3     P00533   rs138193597       678  T  ...             3  669.0  1210.0     True
+
+[4 rows x 16 columns]
+ptmVarCosite
+    Position  ...                                             snp_id
+0         56  ...                                      [rs767259994]
+1         73  ...                                     [rs1269583681]
+2        196  ...                        [RCV001231471, rs766507267]
+3        229  ...                                      [COSM3412174]
+4        229  ...                                     [rs1247276424]
+..       ...  ...                                                ...
+56      1162  ...  [RCV000120700, RCV000860973, RCV002505060, rs4...
+57      1162  ...                        [RCV001345675, rs766347941]
+58      1191  ...                                     [RCV001321254]
+59      1191  ...                        [RCV001233420, rs372948989]
+60      1199  ...                        [RCV001339672, rs768074018]
+
+[61 rows x 5 columns]
+Empty DataFrame
+Columns: []
+Index: []
+warning:
+
+[12/Dec/2024 16:16:44] "POST /process_form/ HTTP/1.1" 200 896608
+[12/Dec/2024 16:16:45] "GET /static/dbQuery/css/jsmol.css HTTP/1.1" 200 864
+[12/Dec/2024 16:16:45] "GET /static/dbQuery/images/jsmolLegend.png HTTP/1.1" 200 257964
+[12/Dec/2024 16:16:45] "GET /static/dbQuery/jsmol/jsmol/js/Jmol2.js HTTP/1.1" 200 15530
+[12/Dec/2024 16:16:45] "GET /static/dbQuery/jsmol/jsmol/js/JSmol.js HTTP/1.1" 200 19144
+[12/Dec/2024 16:16:45] "GET /static/dbQuery/jsmol/jsmol/JSmol.min.js HTTP/1.1" 200 620178
+[12/Dec/2024 16:16:45] "GET /static/dbQuery/jsmol/jsmol/js/JSmolCore.js HTTP/1.1" 200 89445
+[12/Dec/2024 16:16:45] "GET /static/dbQuery/jsmol/jsmol/j2s/img/JSmol_spinner.gif HTTP/1.1" 404 1901
+[12/Dec/2024 16:16:45] "GET /static/dbQuery/jsmol/jsmol/j2s/img/cursor_wait.gif HTTP/1.1" 200 673
+[12/Dec/2024 16:16:45] "GET /static/dbQuery/jsmol/jsmol/j2s/core/package.js HTTP/1.1" 200 7218
+[12/Dec/2024 16:16:45] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corejmol.z.js HTTP/1.1" 200 1409212
+[12/Dec/2024 16:16:46] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corescript.z.js HTTP/1.1" 200 349605
+[12/Dec/2024 16:16:46] "GET /static/dbQuery/jsmol/jsmol/idioma/en_GB.po HTTP/1.1" 404 1871
+[12/Dec/2024 16:16:46] "GET /static/dbQuery/jsmol/jsmol/j2s/JV/StateCreator.js HTTP/1.1" 200 49705
+[12/Dec/2024 16:16:46] "GET /static/dbQuery/jsmol/jsmol/j2s/JV/JmolStateCreator.js HTTP/1.1" 200 146
+[12/Dec/2024 16:16:46] "GET /static/dbQuery/alphafold_pdb/AF-P00533-F1-model_v4.pdb HTTP/1.1" 200 772334
+[12/Dec/2024 16:16:46] "GET /static/dbQuery/jsmol/jsmol/j2s/core/corebio.z.js HTTP/1.1" 200 184006
+[12/Dec/2024 16:16:46] "GET /static/dbQuery/jsmol/jsmol/j2s/J/g3d/HermiteRenderer.js HTTP/1.1" 200 12818

@@ -1,0 +1,450 @@
+/* custom.css */
+/* Uncertain ---------------------------------------------------------------*/
+/* .bg-light{
+    flex:1;
+} */
+
+/* .no-margin-container {
+    padding-left: 0 !important; 
+    padding-right: 0 !important; 
+}
+  */
+
+/* This one was already disguised before cleaning up */
+/* #general_info ul{
+    list-style-type: none;
+    padding-left: 0px;
+    margin-left: 0px;
+} */
+
+/* .main-content2 {
+    padding-left: 205px;
+    flex-grow: 1;
+    width: 100%;
+} */
+
+/* table.dataframe.table.table-bordered.table-striped.custom-table thead{
+    background-color: #2b3f54 !important;
+    color: white;
+} */
+
+/* table.dataframe.table.table-bordered.table-striped.custom-table thead tr th{
+    border: 0px;
+} */
+
+/* table.dataframe.table.table-bordered.table-striped.custom-table td{
+    border: 0px;
+} */
+
+/* table#ptm-target-table.table.table-condensed.table-striped thead{
+    background-color: #2b3f54 !important;
+    color: white;
+} */
+
+/* table#ptm-target-table.table.table-condensed.table-striped thead tr th{
+    border: 0px;
+} */
+
+/* table#ptm-target-table.table.table-condensed.table-striped td{
+    border: 0px;
+} */
+
+.jsmol-sticky {
+    position: sticky;
+    top: 0;
+    width: 100%; /* Ensure it takes the full width of the parent */
+    z-index: 100; /* Ensure it's above other content */
+    background-color: #fff; /* Optional: Add a background color */
+    border-right: 1px solid #ccc; /* Optional: Add a border */
+    padding: 15px; /* Optional: Add padding for spacing */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+
+
+
+
+
+/* General -------------------------------------------------------------------*/
+html, body {
+    min-height: 100%;
+    height: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+.row{
+    width: 100%;
+    margin-left: 0 !important; 
+    margin-right: 0 !important;
+    padding-left: 0 !important; 
+    padding-right: 0 !important; 
+}
+
+.sidebar2 {
+    position: fixed;
+    top: 1100px;
+    padding-left: 15px;
+    /* transform: translateY(-50%); */
+    /* background-color: #f8f9fa; */
+    z-index: 1000;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    width: 200px; /* Initial width of the sidebar */
+    display: flex;
+    margin: 0px;
+}
+
+
+.sidebar2 ul {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0px; /* Removes default padding */
+    margin: 0px;
+    color: black;
+
+}
+
+.sidebar2 ul li{
+    margin-bottom: 10px; /* Adds space between list items */
+
+}
+.sidebar2 ul li a{
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    color: #40546A;
+}
+
+.sidebar2 ul li:hover {
+    background-color: #e9e9e9; /* Changes background on hover */
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem 0.125rem rgba(22,29,57,.2);
+    /* background-color: #fbfeff; */
+    background-color: transparent;
+    border-radius: 0.2rem;
+    /* margin: 1rem 0.125rem;
+    width: calc(100% - 1rem); */
+    position: relative;
+
+    margin-bottom: 10px;
+    padding: 10px; /* Optional, adjust as needed */
+
+    
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.5rem;
+}
+
+.content {
+    min-height: 100vh;
+    height: auto;
+    overflow: auto;
+}
+
+.btn-custom {
+    background-color: #2b3f54;
+    color: #ffffff;
+}
+.btn-custom:hover,
+.btn-custom:focus {
+    background-color: darkgray; /* Set the background color on hover or focus */
+}
+
+
+/* For base -------------------------------------------------------------*/
+.custom-navbar {
+    background-color: #2b3f54 !important;
+}
+.footer {
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center; /* vertically center */
+    height: 75px; /* Set the height of your footer */
+    margin-top: 0px; /* Same as the height of your footer */
+    position: bottom;
+    background-color: #2b3f54; /* Example background color */
+    color: white; /* Example text color */
+    text-align: center;
+  }
+
+
+
+
+/* For Home -------------------------------------------------------------*/
+.list-group .list-group-item.active {
+    background-color: #40546A; /* Set the desired background color for the active item */
+}
+.btn-custom-home {
+    background-color: #2b3f54;
+    color: #ffffff;
+}
+
+
+
+
+
+/* For Result ------------------------------------------------------------*/
+.container-fluid {
+    display: flex;
+    width: 100%;
+    padding-right: 2.5%;
+    padding-left: 2.5%;
+    margin-left: 0 !important; 
+    margin-right: 0 !important; 
+}
+.sidebar ul {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0px; /* Removes default padding */
+    margin: 0px;
+    color: black;
+
+}
+
+.sidebar ul li{
+    margin-bottom: 10px; /* Adds space between list items */
+
+}
+.sidebar ul li a{
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    color: #40546A;
+}
+
+.sidebar ul li:hover {
+    background-color: #e9e9e9; /* Changes background on hover */
+}
+
+.hiddenRow {
+    padding: 5px !important;
+}
+
+.accordion-button {
+    border: none; /* Remove button border */
+    background-color: transparent; /* Remove button background color */
+    padding: 0; /* Remove button padding */
+}
+
+.selected-row {
+    color: #0c63e4 !important;
+    background-color: #e7f1ff !important;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.125) !important;
+}
+
+.main-content {
+    padding-left: 30px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.main {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.main-content h1{
+    width: 100%;
+}
+
+.custom-padding .col{
+    padding-left: 0 !important;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.custom-padding .col-sm-7{
+    padding-left: 0px !important;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.custom-padding .col-sm-5{
+    padding-left: 10px !important;
+    padding-right: 0px;
+    padding-bottom: 10px;
+}
+
+.custom-table{
+    max-height: 300px ; 
+    overflow-y: auto ;
+    overflow-x: auto ;
+    margin-bottom: 10px;
+}
+.custom-table th{
+    text-align: left;
+    position: relative;
+}
+
+.table{
+    margin-bottom: 5px;
+}
+
+.outer-variant-table .inner-variant-table {
+    border: 1px solid #e7f1ff;
+}
+
+.inner-variant-table thead tbody tr:nth-of-type(odd){
+    background-color: white !important;
+    color: black !important;
+}
+
+.inner-variant-table thead th{
+    background-color: white !important;
+    color: black !important;
+}
+
+.outer-variant-table thead th{
+    background-color: #2b3f54;
+    color: white;
+}
+
+.outer-variant-table-tr{
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.custom-table tr{
+    text-align: left;
+
+}
+
+.btn-custom-source {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    font-size: 80%;
+    white-space: nowrap;
+    font-size: .75rem;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    border-radius: .25rem;
+    background-color: #d2dce3;
+    border: 1px solid #8194a1;
+    padding: 0 .25rem;
+    color: #161d39;
+}
+
+.info-list--columns {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.info-list--columns li {
+    width: 25%; /* Each list item occupies 25% of the container's width to create four columns */ 
+    box-sizing: border-box;
+    padding-right: 45px; /* Adjust as needed */
+}
+
+
+.decorated-list-item {
+    display: flex;
+    padding: 0.25rem 0;
+    align-items: stretch;
+}
+
+.decorated-list-item__title {
+    /* flex-grow:1; */
+    text-align: left;
+    padding-right: 0.5rem;
+}
+
+.decorated-list-item__content {
+    flex-grow:1;
+    padding-left: 0.5rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    border-left: 0.125rem solid #40546A;
+}
+
+
+.result-expanded {
+    display: block !important;
+    max-height: none !important; /* Unset the maximum height */
+    height: auto !important; /* Allow the height to adjust dynamically */
+    overflow: auto !important;
+}
+
+.expand-collapse-btn {
+    position: relative;
+    bottom: 0;
+    background-color: #2b3f54;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+.collapse {
+    list-style-type: none !important; /* Removes bullet points */
+    padding-left: 0px !important;
+}
+
+.sidebar {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    /* background-color: #f8f9fa; */
+    z-index: 1000;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    width: 50px; /* Initial width of the sidebar */
+    display: flex;
+    margin: 0px;
+}
+
+.sidebar-expanded {
+    width: 200px; /* Width of the expanded sidebar */
+}
+
+.sidebar-tab {
+    background-color: #2b3f54;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 15px; /* Rounded corners for the top-right */
+    border-bottom-left-radius: 15px; /* Rounded corners for the bottom-right */
+    writing-mode: vertical-rl; /* Vertical writing mode */
+    text-orientation: sideways-left; /* Text orientation flipped to the other side */
+    transform: rotate(180deg);
+    border-color: #161d39;
+}
+.sidebar-tab.rounded {
+    border-top-left-radius: 15px; /* Rounded corners for the top-right */
+    border-bottom-left-radius: 15px; /* Rounded corners for the bottom-right */
+}
+.sidebar-content {
+    padding: 10px;
+    display: none; /* Hide the sidebar content initially */
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    border: 1px solid #2b3f54;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+}
+
+.sidebar-expanded .sidebar-content {
+    display: flex; /* Show the sidebar content when sidebar is expanded */
+}
+
+/* Adjust the minimum width of the Database column */
+.inner-variant-table th:nth-child(2),
+.inner-variant-table td:nth-child(2) {
+    min-width: 120px; /* Adjust the width as needed */
+}
+
+#right-column {
+    position: relative; /* Ensure positioning context for child elements */
+}
+
+
+

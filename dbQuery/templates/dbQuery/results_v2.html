@@ -1,0 +1,1189 @@
+<!-- results.html -->
+<head>
+    <title>Missense3D-PTM Result</title>
+</head>
+{% extends 'dbQuery/base.html' %}
+<!-- {% load static %} -->
+{% block title %} Results V2 {% endblock %}
+{% block content %}
+<head>
+    <script type="text/javascript">       
+
+
+        // All loading event to determine Cards shapes when page loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarContent = document.querySelector('.sidebar-content');
+            sidebarContent.style.display = 'none';
+            sidebar.classList.remove('sidebar-expanded');
+    });
+        document.addEventListener('DOMContentLoaded', function() {
+        var topologyTableHeight = document.getElementById('custom-table-variant-target').offsetHeight;
+        if (topologyTableHeight >= 300){
+            document.getElementById('expandCollapseBtn-variant').style.display = 'block';
+        } else {
+        document.getElementById('expandCollapseBtn-variant').style.display = 'none';
+        }
+    });
+        document.addEventListener('DOMContentLoaded', function() {
+            var topologyTableHeight = document.getElementById('ptm-target-table').offsetHeight;
+            if (topologyTableHeight >= 300){
+                document.getElementById('expandCollapseBtn-ptmTarget').style.display = 'block';
+            } else {
+            document.getElementById('expandCollapseBtn-ptmTarget').style.display = 'none';
+            }
+    });
+        document.addEventListener('DOMContentLoaded', function() {
+            var topologyTableHeight = document.getElementById("ptm-variant-cosite-table").offsetHeight;
+            if (topologyTableHeight >= 220){
+                document.getElementById('expandCollapseBtn-ptmVariantCosite').style.display = 'block';
+            } else {
+            document.getElementById('expandCollapseBtn-ptmVariantCosite').style.display = 'none';
+            }
+    });
+        document.addEventListener('DOMContentLoaded', function() {
+            var topologyTableHeight = document.getElementById('other-ptm-tabler').offsetHeight;
+            if (topologyTableHeight >= 220){
+                document.getElementById('expandCollapseBtn-otherptm').style.display = 'block';
+            } else {
+            document.getElementById('expandCollapseBtn-otherptm').style.display = 'none';
+            }
+    });
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     var topologyTableHeight = document.getElementById("topology-expand").offsetHeight;
+        //     console.log(topologyTableHeight)
+        //     if (topologyTableHeight >= 300){
+        //         console.log("Table is >= 300")
+        //         document.getElementById('expandCollapseBtn-topology').style.display = 'block';
+        //     } else {
+        //         console.log("table is <300")
+        //         document.getElementById('expandCollapseBtn-topology').style.display = 'none';
+        //     }
+        // });
+
+        
+        // For expand buttons
+        function toggleContent(sectionId, buttonID) {
+            var content = document.getElementById(sectionId);
+            var tableBody = content.querySelector('tbody');
+            var button = document.getElementById(buttonID);
+
+            if (!content.classList.contains("result-expanded")) {
+                content.classList.add("result-expanded");
+                button.innerHTML = '<span><i class="bi bi-arrows-angle-contract"></i> Collapse</span>';
+            } else {
+                content.classList.remove("result-expanded");
+                button.innerHTML = '<span><i class="bi bi-arrows-angle-expand"></i> Expand</span>';
+            }
+        }
+            // function toggleContent(sectionId) {
+            //     var content = document.getElementById(sectionId);
+            //     content.classList.toggle("result-expanded");
+            // }
+
+        // For topology expand button
+        function toggleContent_topology(contentId, buttonId) {
+            const content = document.getElementById(contentId);
+            const button = document.getElementById(buttonId);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+                button.innerHTML = '<span><i class="bi bi-arrows-angle-contract"></i> Collapse</span>';
+            } else {
+                content.style.display = "none";
+                button.innerHTML = '<span><i class="bi bi-arrows-angle-expand"></i> Expand</span>';
+            }
+        }
+            // function toggleDropdown(id, element) {
+            //     var dropdownTable = document.getElementById(id);
+            //     if (dropdownTable.style.display === "none") {
+            //         dropdownTable.style.display = "table";
+            //         // Close other dropdowns
+            //         closeOtherDropdowns(id);
+            //     } else {
+            //         dropdownTable.style.display = "none";
+            //     }
+            // }
+            // function closeOtherDropdowns(clickedId) {
+            //     var dropdowns = document.getElementsByClassName("dropdown-content");
+            //     for (var i = 0; i < dropdowns.length; i++) {
+            //         var dropdownId = dropdowns[i].id;
+            //         if (dropdownId !== clickedId) {
+            //             dropdowns[i].style.display = "none";
+            //         }
+            //     }
+            // }
+            // function toggleAccordion(index) {
+            //     $('#accordion-' + index).toggleClass('active');
+            //     $('#panel-' + index).toggleClass('show');
+            // }
+
+        // for query variant arrow
+        function toggleArrow(button) {
+            var row = button.closest('tr');
+            button.querySelector('i').classList.toggle('bi-chevron-up');
+            button.querySelector('i').classList.toggle('bi-chevron-down');
+            row.classList.toggle('selected-row'); 
+        }
+        function toggleCollapse(row) {
+          var target = row.nextElementSibling.querySelector('.collapse');
+          var isOpen = target.classList.contains('show');
+          if (isOpen) {
+              target.classList.remove('show');
+              row.querySelector('.bi').classList.remove('bi-chevron-up');
+              row.querySelector('.bi').classList.add('bi-chevron-down');
+              document.getElementById('expandCollapseBtn-variant').style.display = 'none';
+          } else {
+              target.classList.add('show');
+              row.querySelector('.bi').classList.remove('bi-chevron-down');
+              row.querySelector('.bi').classList.add('bi-chevron-up');
+              console.log("isOpen Table is ")
+              console.log(target.offsetHeight)
+              if (target.offsetHeight > 200){
+                document.getElementById('expandCollapseBtn-variant').style.display = 'block';
+              }
+          }
+          // Toggle selected-row class for highlighting the clicked row
+          row.classList.toggle('selected-row');
+        }
+
+        // For opening sidebar
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarContent = document.querySelector('.sidebar-content');
+
+            if (sidebar.classList.contains('sidebar-expanded')) {
+                sidebar.classList.remove('sidebar-expanded');
+                sidebarContent.style.display = 'none';
+            } else {
+                sidebar.classList.add('sidebar-expanded');
+                sidebarContent.style.display = 'flex';
+            }
+        }
+
+        // For ptm type filtering (Cosite)
+        function filterByPtmType(ptmType) {
+            $('#ptm-variant-cosite-table-filter').DataTable().column(0).search(ptmType).draw();
+        }
+        function clearFilters() {
+            // Clear search input
+            $('#ptm-variant-cosite-table-filter').DataTable().search('').draw();
+
+            // Reset column filters
+            $('#ptm-variant-cosite-table-filter').DataTable().columns().search('').draw();
+
+            // Reset sorting
+            $('#ptm-variant-cosite-table-filter').DataTable().order([0, 'asc']).draw();
+
+            // Reset pagination to first page
+            $('#ptm-variant-cosite-table-filter').DataTable().page('first').draw();
+        }
+
+        // For ptm type filtering (other ptms)
+        function filterByPtmType1(ptmType) {
+            $('#other-ptm-tabler').DataTable().column(0).search(ptmType).draw();
+        }
+        function clearFilters1() {
+            // Clear search input
+            $('#other-ptm-tabler').DataTable().search('').draw();
+
+            // Reset column filters
+            $('#other-ptm-tabler').DataTable().columns().search('').draw();
+
+            // Reset sorting
+            $('#other-ptm-tabler').DataTable().order([0, 'asc']).draw();
+
+            // Reset pagination to first page
+            $('#other-ptm-tabler').DataTable().page('first').draw();
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+
+
+<style>
+    .result {
+        height: 230px; /* Adjust based on your content */
+        overflow: hidden;
+        overflow-y: auto;
+        border: 1px solid lightgrey; /* Red border, 4px thick */
+    }
+    .result-expanded {
+        height: auto;
+    }
+
+
+    /* The two main columns */
+    .col-sm-7{
+        height: 950px;
+        overflow-y: auto;
+        /* border: 1px solid lightgrey; */
+    }
+    .col-sm-5{
+        height: 950px;
+        overflow-y: auto;
+    }
+
+
+    /* for all cards title information*/
+    .hover-container {
+    position: relative;
+    display: inline-flex; /* Allows the container to fit the content's width */
+    }
+    .hover-container .hover-section {
+        display: none; /* Hide the hover section by default */
+        position: absolute; /* Position it below the title */
+        background-color: white; /* Give it a background */
+        min-width: 160px; /* Minimum width */
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Add some shadow for aesthetics */
+        z-index: 100; /* Make sure it appears on top of other content */
+        padding: 5px;
+        border-radius: 10px;
+        top:30px;
+        
+    }
+    .hover-container .symboltitle:hover + .hover-section {
+        display: block; /* Show the hover section when title is hovered */
+    }
+    /* Optional: Style the title for better UX */
+    .hover-container .symboltitle {
+        cursor: pointer; /* Change cursor to indicate it's interactive */
+    }
+
+    /* CSS to style the position-residue pairs vertically */
+
+
+    /* Style each position-residue pair box */
+    .position-residue-pair {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 30px; /* Fixed width */
+        height: 40px; /* Fixed height */
+        box-sizing: border-box;
+        border: 0.1px solid #bebebe56; /* Optional: add border for clarity */
+
+    }
+
+    .position-residue-pair .emposition,
+    .position-residue-pair .emresidue {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50%; /* Each <em> fills half the box */
+        box-sizing: border-box;
+
+    }
+
+    /* Style for the warning button */
+    /* Style for the warning button */
+    #warning-button {
+        position: fixed; /* Fixed position to stay on screen */
+        bottom: 0; /* Align to the bottom of the viewport */
+        left: 0; /* Align to the left of the viewport */
+        width: 40px; /* Increase width for better visibility */
+        height: 100px; /* Increase height to make it longer vertically */
+        background-color: #f44336; /* Red background for warning */
+        color: yellow; /* White text color */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Remove rounded corners to fit the edge */
+        padding: 10px; /* Inner padding */
+        font-size: 14px; /* Smaller font size */
+        writing-mode: vertical-rl; /* Rotate text vertically */
+        transform: rotate(180deg); /* Flip the text to read bottom to top */
+        text-align: center; /* Center the text */
+        cursor: pointer; /* Pointer cursor for interactivity */
+        display: none; /* Initially hidden */
+        z-index: 1000; /* Ensure it stays above other elements */
+    }
+
+    #warning-button:hover {
+        background-color: #d32f2f; /* Darker red on hover */
+    }
+</style>
+
+
+
+<body>
+    {% if user_position_withinSequence is not None %}
+        {% if not user_position_withinSequence %}
+            <script>
+                // Define a function to redirect the user to the home page
+                    function redirectToHomePage() {
+                        window.location.href = "{% url 'home' %}"; 
+                    }
+                    var confirmation = confirm("The position ({{ uniprot_residue_number }}) you inputted for {{ uniprot_id }} is out of range. Click 'OK' to go back to the home page. Click 'CANCEL' to continue with the results.");
+
+                    // Check the user's choice
+                    if (confirmation) {
+                        redirectToHomePage();
+                    } else {
+                        
+                    }
+            </script>
+        {% endif %} 
+    {%endif%}
+    {% if wt_residue_fromSequenceFile %}
+        {% if wt_residue_fromSequenceFile != wt_residue %}
+        <script>
+        // Define a function to redirect the user to the home page
+            function redirectToHomePage() {
+                window.location.href = "{% url 'home' %}"; 
+            }
+            var confirmation = confirm("The wild type residue ({{ wt_residue }}) you inputted for {{ uniprot_id }} at position {{ uniprot_residue_number }} is incorrect. The correct wild type residue at your inputted position is ({{ wt_residue_fromSequenceFile }}). Did you mean to search at a different position? If so, click 'OK' to go back to the home page. Click 'CANCEL' to continue with the results.");
+
+            // Check the user's choice
+            if (confirmation) {
+                redirectToHomePage();
+            } else {
+                
+            };
+        </script>
+        {% endif %}
+    <!-- {% else %}
+        <script>
+            var notice_nowtcheck = "No Wild Type Check as no recorded sequence information from Alphafold";
+        </script> -->
+    {% endif %}
+
+
+ 
+    <div class = "content">
+        <div class="bg-white pt-5">
+            <div class="container-fluid">
+                <div class="main">
+<!-------------------- Sidebar Open -------------------->
+                    <div class="sidebar">
+                        <div class="sidebar-tab rounded" onclick="toggleSidebar()">
+                            <span>Contents <i class="bi bi-chevron-left"></i></span>
+                        </div>
+                        <div class="sidebar-content">
+                            <ul>
+                                <h4 class="border-bottom">Contents</h4>
+                                <li>
+                                    <span>
+                                        <a href="#main-results" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="main-results">
+                                            <strong>Main Results</strong>
+                                        </a>
+                                        <i class="bi bi-chevron-down"></i>
+                                    </span>
+
+                                    <div class="collapse" id="main-results">
+                                        <ul>
+                                            <li><a href="#variant-target">Query Variant Table</a></li>
+                                            <li><a href="#ptm-target">Query PTM Table</a></li>
+                                            <li><a href="#addtl-ptm-variant-table">PTM & Variant Co-site Table</a></li>
+                                            <li><a href="#other-ptms-table">Other PTMs Table</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                {% if topology %}
+                                    <li><a href="#topology-table"><strong>Topology</strong></a></li>
+                                {% endif %}
+                            </ul>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        </div>
+                    </div>
+<!-------------------- Sidebar Close -------------------->
+
+
+
+
+
+
+
+
+
+<!-------------------- Main Contents Open -------------------->
+                    <!-- Main Content-->
+                    <div class = "main-content">
+<!-- Protin Results Open -->
+                        <div class="row custom-padding">
+                            <div class="col">
+                                <h1 class="border-bottom border-secondary">Results</h1>  
+                                <h3>
+                                    <span>
+                                        Uniprot ID: <strong><a style="color:#2b3f54;" href="https://www.uniprot.org/uniprotkb/{{uniprot_id}}/entry" target="_blank"  title="Click here to view the UniProt entry for your protein." data-toggle="tooltip">{{uniprot_id}}</a></strong>
+                                        <a href="https://www.uniprot.org/uniprotkb/{{uniprot_id}}/entry" target="_blank" title="Click here to view the UniProt entry for your protein."></a>
+                                    </span> 
+                                    |
+                                    Gene Name: <strong><a style="color: #2b3f54;">{{gene_name}}</a></strong>
+                                </h3>  
+                            </div>
+                        </div>
+        
+                        <div class="row custom-padding" id="general_info">
+                            <div class="col" style="padding:0;">
+                                <ul class="info-list info-list--columns">
+                                    <li>
+                                        <div class="decorated-list-item">
+                                            <div class="decorated-list-item__title tiny">
+                                                <span data-article-id="protein_names">Protein Name</span>
+                                            </div>
+                                            <div class="decorated-list-item__content">
+                                                <strong> {{proteinName}}</strong>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="decorated-list-item">
+                                            <div class="decorated-list-item__title tiny">
+                                                <span data-article-id="gene_name">Alternative Gene Names</span>
+                                            </div>
+                                            <div class="decorated-list-item__content">
+                                                <strong>
+                                                    {% for item in alt_gene_names %}
+                                                    <span>{{ item }}{% if not forloop.last %},{% endif %}</span>
+                                                    {% endfor %}
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="decorated-list-item">
+                                            <div class="decorated-list-item__title tiny">
+                                                <span data-article-id="alpha_fold_link">AlphaFold Model</span>
+                                            </div>
+                                            <div class="decorated-list-item__content">
+                                                <strong>
+                                                    <span>{{uniprot_id}}
+                                                        <a href="https://alphafold.ebi.ac.uk/entry/{{uniprot_id}}" target="_blank" title="Click here to view your protein in AlphaFold." data-toggle="tooltip">
+                                                            <i class="bi-box-arrow-up-right"></i>
+                                                        </a>
+                                                    </span>
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="decorated-list-item">
+                                            <div class="decorated-list-item__title tiny">
+                                                <span data-article-id="all_variants_link">All Variants</span>
+                                            </div>
+                                            <div class="decorated-list-item__content">
+                                                <strong>
+                                                    <span>{{uniprot_id}}
+                                                        <a href="https://www.uniprot.org/uniprotkb/{{uniprot_id}}/variant-viewer" target="_blank" title="Click here to view all variants for this protein in UniProt." data-toggle="tooltip">
+                                                            <i class="bi-box-arrow-up-right"></i>
+                                                        </a>
+                                                    </span>
+                                                </strong>
+                                                <!-- <strong>
+                                                    <a href="https://www.uniprot.org/uniprotkb/{{uniprot_id}}/variant-viewer" target= "_blank">{{uniprot_id}}</a>
+                                                </strong> -->
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+
+                        </div>
+                        <br>
+<!-- Protin Results Close -->
+
+
+
+
+
+<!-- Main Results Section Open -->
+                        <div class="row custom-padding" id="main-results">
+                            <div class="col">
+                                <div style="display: flex; align-items: flex-end;">
+                                    <h3 id="main-results" style="margin: 0; padding-right: 10px;">Main Results </h3>
+                                    <a href="{% url 'download_excel' %}" 
+                                        title="Click here to download results as an excel sheet." 
+                                        data-toggle="tooltip" 
+                                        style="color:#2b3f54; font-size: 30px;"> 
+                                        <i class="bi bi-download"></i>
+                                    </a>
+                                </div>
+                                <hr style="margin: 0; padding-bottom: 10px;">                                 
+                                <div class="row custom-padding">
+
+
+
+    <!-- Left Column Open -->
+                                    <!-- Column on the left -->
+                                    <div class="col-sm-7" id="left-column">
+        <!-- Variant Results Open -->
+                                        <!-- Query Variant Target Card -->
+                                        <div class="card" id="card-variant-target">
+                                            <!-- Query Variant Target Card Header  -->
+                                            <div class="card-header">
+                                                <center>  
+                                                    <div class="hover-container">
+                                                        <h4 id="variant-target"class="text-center" style="margin: 0; padding-right: 2px;"> 
+                                                            Query Variant Result
+                                                        </h4>
+                                                        <div class="symboltitle" style="display: flex; align-items: flex-start; justify-content: flex-start;">
+                                                            <i class="bi bi-info-circle" style="margin-left: auto;"></i>
+                                                            <!-- <a><sup><i>i</i></sup></a> -->
+                                                        </div>
+                                                        <div class="hover-section">
+                                                            Variant(s) information for queried position ({{uniprot_residue_number}}).
+                                                        </div>
+                                                    </div>
+                                                </center>
+                                            </div>
+                                            <!-- Query Variant Target Card Body -->
+                                            <div class="card-body">
+                                                <!-- Query Variant Target Table-->
+                                                {% if variant_target %}
+                                                    {% if wt_residue_fromSequenceFile is None %}
+                                                        <p style="color: red" class="text-center">No Wild Type Check due to lack of reference sequence from AlphaFold file </p>
+                                                    {% endif %}
+                                                <div class="custom-table" id="custom-table-variant-target">
+                                                    <!-- Outer Variant Target Table -->
+                                                    <table class="table table-condensed outer-variant-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th></th>
+                                                                <th title="Position of variant on queried canonical protein sequence" data-toggle="tooltip">Position</th>
+                                                                <th title="Wild type residue at queried position" data-toggle="tooltip">WildType </th>
+                                                                <th title="Mutant residue at queried position" data-toggle="tooltip">Mutant</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for row in variant_target %}
+                                                                <tr onclick="toggleCollapse(this)" class ="outer-variant-table-tr">
+                                                                    <td>
+                                                                        <button onclick="toggleArrow(this)" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+                                                                            <i class="bi bi-chevron-down"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                    <td>{{ row.position }}</td>
+                                                                    <td>{{ row.wt }}</td>
+                                                                    <td>{{ row.mutant }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="5" class="hiddenRow">
+                                                                        <div id="collapse{{ forloop.counter }}" class="accordian-body collapse" >
+                                                                            <!-- Inner Variant Target Table  -->
+                                                                            <table class="table-striped inner-variant-table table-bordered" style="width: 100%;" id="inner-variant-target-table">
+                                                                            
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th style="font-size:smaller;" title="ID(s) associated with variant accession" data-toggle="tooltip">Accession ID</th>
+                                                                                        <th style="font-size: x-small;" title="Accession Database"  data-toggle="tooltip">Database</th>
+                                                                                        <!-- <th style="font-size: x-small;" title="Conditions associated with Accession ID (if any)" data-toggle="tooltip">Conditions</th> -->
+                                                                                        <th style="font-size: x-small;" title="Disease associated with Accession ID (if any)" data-toggle="tooltip">Disease</th>
+                                                                                        <th style="font-size: x-small;" title="Clinical signficance associated with Accession ID (if any)" data-toggle="tooltip">Clinical Significance</th>
+                                                                                        <th style="font-size: x-small;" title="Source(s) Accession ID has been reported in (if any)" data-toggle="tooltip">Source</th>
+                                                                                        <th style="font-size: x-small;" title="Clinvar Germline review status" data-toggle="tooltip">Review status</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    {% for variant in row.variantInfo %}
+                                                                                    <tr>
+                                                                                        <td style="font-size: x-small;">{{ variant.snp_id }}</td>
+                                                                                        <td style="font-size: x-small;">
+                                                                                            <ul style="list-style-type: none; padding-left: 0; margin: 0">
+                                                                                                {% for source in variant.db_source %}
+                                                                                                    
+                                                                                                        <li>{{ source | safe}}</li>
+                                                                                                        
+                                                                                                {% endfor %}
+                                                                                            </ul>
+                                                                                        </td>
+                                                                                        <!-- <td style="font-size: x-small;">
+                                                                                            {% if variant.conditions %}
+                                                                                                {% for condition in variant.conditions %}
+                                                                                                    {{ condition| safe }}
+                                                                                                    {% if not forloop.last %}, {% endif %}
+                                                                                                {% endfor %}
+                                                                                            {% else %}
+                                                                                                -
+                                                                                            {% endif %}
+                                                                                        </td> -->
+                                                                                        <td style="font-size: x-small;">
+                                                                                            {% if variant.disease_OMIMID %}
+                                                                                                {% for disease_description in variant.disease_OMIMID %}
+                                                                                                    {{ disease_description| safe }}
+                                                                                                    {% if not forloop.last %}, {% endif %}
+                                                                                                {% endfor %}
+                                                                                            {% else %}
+                                                                                                -
+                                                                                            {% endif %}
+                                                                                        </td>
+                                                                                        <td style="font-size: x-small;">
+                                                                                            <ul style="list-style-type: none; padding-left: 0; margin: 0">
+                                                                                                {% if variant.clinical_significance %}
+                                                                                                    {% for clinical_significance in variant.clinical_significance %}
+                                                                                                        <li>{{ clinical_significance| safe }}</li>
+                                                                                                    {% endfor %}
+                                                                                                {% else %}
+                                                                                                    -
+                                                                                                {% endif %}
+                                                                                            </ul>
+                                                                                        </td>
+                                                                                        <td style="font-size: x-small;">
+                                                                                            <!-- Button and collapsible section for variant.pheno_source -->
+                                                                                            {% if variant.pheno_source|length == 1 and variant.pheno_source.0 is none %}
+                                                                                                -
+                                                                                            {% else %}
+                                                                                                <button class="btn btn-custom-source" type="button" data-toggle="collapse" data-target="#variantSources{{ forloop.parentloop.counter }}_{{ forloop.counter }}" aria-expanded="false" aria-controls="variantSources{{ forloop.parentloop.counter }}_{{ forloop.counter }}" title="Click here to see all sources for this variant." data-toggle="tooltip">
+                                                                                                    <i class="bi bi-bookmark-fill"></i>
+                                                                                                    <span>Sources ({{ variant.pheno_source | length }})</span>
+                                                                                                </button>
+                                                                                                <ul class="collapse" id="variantSources{{ forloop.parentloop.counter }}_{{ forloop.counter }}" style="list-style-type: none; padding-left: none;">
+                                                                                                    {% for source in variant.pheno_source %}
+                                                                                                        <li>
+                                                                                                            <a href="https://pubmed.ncbi.nlm.nih.gov/{{source}}/" target="_blank" title="Click here to go to variant source." data-toggle="tooltip">
+                                                                                                                PubMed: {{source}}
+                                                                                                                <i class= "bi bi-box-arrow-up-right"></i>
+                                                                                                            </a>
+                                                                                                        </li>
+                                                                                                        <!-- <li>{{ source | safe }}</li> -->
+                                                                                                    {% endfor %}
+                                                                                                </ul>
+                                                                                            {% endif %}
+                                                                                        </td>
+                                                                                        <td style="font-size: x-small;">
+                                                                                            <ul style="list-style-type: none; padding-left: 0; margin: 0"></ul>
+                                                                                                {% if variant.review_status %}
+                                                                                                    {% for review_status in variant.review_status %}
+                                                                                                        {{ review_status| safe }}
+                                                                                                        {% if not forloop.last %}, {% endif %}
+                                                                                                    {% endfor %}
+                                                                                                {% else %}
+                                                                                                    -
+                                                                                                {% endif %}
+                                                                                            </ul>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    {% endfor %}
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <button class="btn expand-collapse-btn text-center" type="button" onclick="toggleContent('custom-table-variant-target', 'expandCollapseBtn-variant')" id="expandCollapseBtn-variant">
+                                                  <span><i class="bi bi-arrows-angle-expand"></i> Expand</span>
+                                                </button>
+                                                {% else %}
+                                                <p style="color:red;" class="text-center">No variant information found at residue position {{uniprot_residue_number}} for {{uniprot_id}}/{{gene_name}}.</p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <br>
+        <!-- Variant Results Close -->
+        <!-- PTM Results Open -->
+                                        <!-- Query PTM Target Card -->
+                                        <div class="card" id="card-ptm-target">
+                                            <!-- Query PTM Target Card Header  -->
+                                            <div class="card-header">
+                                                <center>  
+                                                    <div class="hover-container">
+                                                        <h4 id="ptm-target" class="text-center" style="margin: 0; padding-right: 2px;"> Query PTM Results</h4>
+                                                        <div class="symboltitle" style="display: flex; align-items: flex-start; justify-content: flex-start;">
+                                                            <i class="bi bi-info-circle" style="margin-left: auto;"></i>
+                                                        </div>
+                                                        <div class="hover-section">PTM(s) information at the selected position.</div>
+                                                    </div>
+                                                </center>
+                                            </div>
+                                            <!-- Query PTM Target Card Body -->
+                                            <div class="card-body">
+                                                {% if not is_ptmTarget_df_empty and not is_ptmAll_empty%}
+                                                    <!-- Query PTM Target Table -->
+                                                    <div class="custom-table" id="ptm-target-expand">
+                                                        <table class="table table-condensed table-striped" id="ptm-target-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th title="Type of post-translational modification" data-toggle="tooltip">Type</th>
+                                                                    <th title="Location of PTM on queried canonical protein sequence (-5 to +4 as motif)" data-toggle="tooltip">Position</th>
+                                                                    <th title="Wild type residue at queried position" data-toggle="tooltip">WildType </th>
+                                                                    <th title="Source(s) associated with PTM at queried position (if any)" data-toggle="tooltip" data-placement="right">Source</th>
+                                                                    <th title="Uniprot Evidence Code" data-toggle="tooltip" data-placement="right"><a href="https://www.uniprot.org/help/evidences#evidence-types-used-for-uniprotkb-annotations" target="_blank">Evidence Code</a></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for index, row in ptm_target.iterrows %}
+                                                                    <tr>
+                                                                        <td>{{ row.ptm_type }}</td>
+                                                                        <td>{{ row.Position }}</td>
+                                                                        <td>{{ row.wt_residue }}</td>
+                                                                        <td>
+                                                                            {% if '-' not in row.htmlLink  %}
+                                                                                <button class="btn btn-custom-source" type="button" data-toggle="collapse" data-target="#sources{{ index }}" aria-expanded="false" aria-controls="sources{{ index }}" title="Click here to see all sources for this PTM." data-toggle="tooltip">
+                                                                                    <i class="bi bi-bookmark-fill"></i>
+                                                                                    <span>Sources ({{ row.htmlLink|length }})</span>
+                                                                                </button>
+                                                                                <ul class="collapse" id="sources{{ index }}">
+                                                                                    {% for source in row.htmlLink %}
+                                                                                        <li>{{ source | safe}}</li>
+                                                                                    {% endfor %}
+                                                                                </ul>
+                                                                            {% else %}
+                                                                                <a href="https://www.uniprot.org/uniprotkb/{{uniprot_id}}/entry#ptm_processing" target="_blank">UniProt</a>
+                                                                            {% endif %}
+                                                                        </td>
+                                                                        <td style="font-size: smaller;">{{ row.evidence_code| join:', ' }}</td>
+                                                                    </tr>
+                                                                {% endfor %}
+
+                                                                <!-- {% for index, row in ptm_target_motif.iterrows %}
+                                                                    <tr>
+                                                                        <td>{{ row.ptm_type }}</td>
+                                                                        <td>{{ row.Position }} *Query on Motif</td>
+                                                                        <td>{{ row.wt_residue }}</td>
+                                                                        <td>
+                                                                            {% if '-' not in row.htmlLink  %}
+                                                                                <button class="btn btn-custom-source" type="button" data-toggle="collapse" data-target="#sources{{ index }}" aria-expanded="false" aria-controls="sources{{ index }}" title="Click here to see all sources for this PTM." data-toggle="tooltip">
+                                                                                    <i class="bi bi-bookmark-fill"></i>
+                                                                                    <span>Sources ({{ row.htmlLink|length }})</span>
+                                                                                </button>
+                                                                                <ul class="collapse" id="sources{{ index }}">
+                                                                                    {% for source in row.htmlLink %}
+                                                                                        <li>{{ source | safe}}</li>
+                                                                                    {% endfor %}
+                                                                                </ul>
+                                                                            {% else %}
+                                                                                <a href="https://www.uniprot.org/uniprotkb/{{uniprot_id}}/entry#ptm_processing" target="_blank">UniProt</a>
+                                                                            {% endif %}
+                                                                        </td>
+                                                                        <td>{{ row.evidence_code| join:', ' }}</td>
+                                                                    </tr>
+                                                                {% endfor %} -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <button class="btn expand-collapse-btn text-center" type="button" onclick="toggleContent('ptm-target-expand', 'expandCollapseBtn-ptmTarget')" id="expandCollapseBtn-ptmTarget">
+                                                        <span><i class="bi bi-arrows-angle-expand"></i> Expand</span>
+                                                    </button>
+                                                {% else %}
+                                                    <p style= "color: red" class="text-center">No PTMs found at residue position {{ uniprot_residue_number }} for {{ uniprot_id }}/{{ gene_name }}.</p>
+                                                    <!-- <div class="custom-table" id="ptm-target-expand">
+                                                        <table class="table table-condensed table-striped" id="ptm-target-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th title="Type of post-translational modification" data-toggle="tooltip">Type</th>
+                                                                    <th title="Location of PTM on queried canonical protein sequence (-5 to +4 as motif)" data-toggle="tooltip">Position</th>
+                                                                    <th title="Wild type residue at queried position" data-toggle="tooltip">WildType </th>
+                                                                    <th title="Source(s) associated with PTM at queried position (if any)" data-toggle="tooltip" data-placement="right">Source</th>
+                                                                    <th title="Uniprot Evidence Code" data-toggle="tooltip" data-placement="right"><a href="https://www.uniprot.org/help/evidences#evidence-types-used-for-uniprotkb-annotations" target="_blank">Evidence Code</a></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for index, row in ptm_target_motif.iterrows %}
+                                                                    <tr>
+                                                                        <td>{{ row.ptm_type }}</td>
+                                                                        <td>{{ row.Position }} *Query on Motif</td>
+                                                                        <td>{{ row.wt_residue }}</td>
+                                                                        <td>
+                                                                            {% if '-' not in row.htmlLink  %}
+                                                                                <button class="btn btn-custom-source" type="button" data-toggle="collapse" data-target="#sources{{ index }}" aria-expanded="false" aria-controls="sources{{ index }}" title="Click here to see all sources for this PTM." data-toggle="tooltip">
+                                                                                    <i class="bi bi-bookmark-fill"></i>
+                                                                                    <span>Sources ({{ row.htmlLink|length }})</span>
+                                                                                </button>
+                                                                                <ul class="collapse" id="sources{{ index }}">
+                                                                                    {% for source in row.htmlLink %}
+                                                                                        <li>{{ source | safe}}</li>
+                                                                                    {% endfor %}
+                                                                                </ul>
+                                                                            {% else %}
+                                                                                <a href="https://www.uniprot.org/uniprotkb/{{uniprot_id}}/entry#ptm_processing" target="_blank">UniProt</a>
+                                                                            {% endif %}
+                                                                        </td>
+                                                                        <td>{{ row.evidence_code| join:', ' }}</td>
+                                                                    </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div> -->
+                                                
+                                                
+                                                
+                                                
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <br>
+        <!-- PTM Results Close -->
+        <!-- Cosite Table Open -->
+                                        <!-- PTM/Variant Co-Site Card -->
+                                        <div class="card" id="card-ptm-variant-cosite">
+                                            <div class="card-header">
+                                                <center>  
+                                                    <div class="hover-container">
+                                                        <h4 id="addtl-ptm-variant-table" class="text-center" style="margin: 0; padding-right: 2px;"> PTM & Variant Co-sites</h4>
+                                                        <div class="symboltitle" style="display: flex; align-items: flex-start; justify-content: flex-start;">
+                                                            <i class="bi bi-info-circle" style="margin-left: auto;"></i> 
+                                                        </div>
+                                                        <div class="hover-section">All PTM(s) and variant(s) found at the same position for this protein.</div>
+                                                    </div>
+                                                </center>
+                                            </div>
+
+                                            <div class="card-body">
+                                                {% if is_ptmVarCosite_df_empty or is_ptmAll_empty %}
+                                                    <p style="color: red" class="text-center">No PTM and variant found at the same site for {{uniprot_id}}/{{gene_name}}.</p>
+                                                {% else %}
+                                                    <!-- PTM/Variant Co-Site Table -->
+                                                    <div class="custom-table" id = "ptm-variant-cosite-table" style="max-height:  200px;">
+                                                        <table class="table table-bordered table-striped" style="margin-bottom: 5px;" id="ptm-variant-cosite-table-filter">
+                                                            <thead>
+                                                                <tr>
+                                                                    <!-- if want to link to jsmol -->
+                                                                    <!-- <th style="color:red;">
+                                                                        <span>
+                                                                            <input type='checkbox' id='selectAll' title="Check each box to display individual position(s) on JSmol window. Or check this box to select all." data-toggle="tooltip">
+                                                                            JSmol
+                                                                        </span> 
+                                                                    </th> -->
+                                                                    <th>
+                                                                        
+                                                                        <div class="dropdown" title="Click here to filter PTMs by type" data-toggle="tooltip">
+                                                                            PTM Type
+                                                                                
+                                                                            <i class="bi bi-filter-square" type="button" id="ptmTypeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Click here to filter PTMs by type" data-toggle="tooltip"></i>
+
+                                                                            <div class="dropdown-menu" aria-labelledby="ptmTypeDropdown" style="max-height: 200px; overflow-y: auto;" id="ptmTypeDropdown-menu">
+                                                                                <!-- Populate dropdown menu with options -->
+                                                                                <a class="dropdown-item text-right">                                                                                
+                                                                                    <i class="bi bi-arrow-clockwise" type="button" onclick="clearFilters()" title="Click here to clear filters." data-toggle="tooltip"></i>
+                                                                                </a>
+
+
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Acetylation')">Acetylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('ADP-ribosylation')">ADP-ribosylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Amidation')">Amidation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Atg12 conjugation')">Atg12 conjugation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Biotin')">Biotin</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Bromination')">Bromination</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Citrullination')">Citrullination</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Covalent protein-DNA linkage')">Covalent protein-DNA linkage</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Cross-link')">Cross-link</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('FAD')">FAD</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Gamma-carboxyglutamic acid')">Gamma-carboxyglutamic acid</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Glutathionylation')">Glutathionylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Glycation')">Glycation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Glycoprotein; Hydroxylation')">Glycoprotein; Hydroxylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Glycoprotein; Phosphoprotein')">Glycoprotein; Phosphoprotein</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Glycosylation')">Glycosylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('GPI-anchor')">GPI-anchor</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Hydroxylation')">Hydroxylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Hypusine')">Hypusine</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Iodination')">Iodination</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Isopeptide bond')">Isopeptide bond</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Lipidation')">Lipidation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Lipoyl')">Lipoyl</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('LTQ')">LTQ</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Methylation')">Methylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Modified residue')">Modified residue</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Myristate')">Myristate</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Neddylation')">Neddylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Nitration')">Nitration</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Nucleotide-binding; Phosphoprotein')">Nucleotide-binding; Phosphoprotein</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Oxidation')">Oxidation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Palmitate')">Palmitate</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Phosphopantetheine; Phosphoprotein')">Phosphopantetheine; Phosphoprotein</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Phosphorylation')">Phosphorylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Prenylation')">Prenylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Proteoglycan')">Proteoglycan</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Pyridoxal phosphate')">Pyridoxal phosphate</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Pyrrolidone carboxylic acid')">Pyrrolidone carboxylic acid</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Pyruvate')">Pyruvate</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Retinal protein')">Retinal protein</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('S-nitrosylation')">S-nitrosylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Selenocysteine')">Selenocysteine</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Succinylation')">Succinylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Sulfation')">Sulfation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Sumoylation')">Sumoylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Thioester bond')">Thioester bond</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Thioether bond')">Thioether bond</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('TPQ')">TPQ</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Transglutamation')">Transglutamation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType('Ubiquitination')">Ubiquitination</a>
+                                                                                <!-- Add more options as needed -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th title="Position of PTM and variant co-site on the queried canonical protein sequence" data-toggle="tooltip">Position</th>
+                                                                    <th title="Wild type residue at queried position" data-toggle="tooltip">WildType </th>
+                                                                    <th title="Mutant residue(s) reported at queried position" data-toggle="tooltip">Mutant</th>
+                                                                    <th title="Accession ID associated with this variant" data-toggle="tooltip">Accession ID</th>
+                                                                    <!-- <th>Source</th> -->
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                
+                                                                {% for index, row in ptmVarCosite.iterrows %}
+                                                                <tr>
+                                                                    <!-- if want to link to jsmol  -->
+                                                                    <!-- <td><input type="checkbox" class="rowCheckbox"></td> --> 
+                                                                    <td>{{ row.ptm_type }}</td>
+                                                                    <td>{{ row.Position }}</td>
+                                                                    <td>{{ row.wt_residue }}</td>
+                                                                    <td>{{ row.mutant }}</td>
+                                                                    <td>
+                                                                        {{row.snp_id | join:', '}}
+                                                                    </td>
+    
+                                                                </tr>
+                                                                {% endfor %}
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                    <button class="btn expand-collapse-btn text-center" type="button" onclick="toggleContent('ptm-variant-cosite-table', 'expandCollapseBtn-ptmVariantCosite')" id="expandCollapseBtn-ptmVariantCosite">
+                                                        <span><i class="bi bi-arrows-angle-expand"></i> Expand</span>
+                                                    </button>
+                                                {% endif %}
+                                            </div>
+
+                                        </div>
+                                        <br>
+        <!-- Cosites Table Close -->
+        <!-- Other PTMs Table Open -->
+                                        <!-- Other PTM Card -->
+                                        <div class="card" id="card-ptm-other">
+                                            <!-- Other PTM Card Header  -->
+                                            <div class="card-header">
+                                                <center>  
+                                                    <div class="hover-container">
+                                                        <h4 id="other-ptms-table" class="text-center" style="margin: 0; padding-right: 2px;"> Additional PTMs</h4>
+                                                        <div class="symboltitle" style="display: flex; align-items: flex-start; justify-content: flex-start;">
+                                                            <i class="bi bi-info-circle" style="margin-left: auto;"></i> 
+                                                        </div>
+                                                        <div class="hover-section">Other PTM(s) on the same protein</div>
+                                                    </div>
+                                                </center>
+                                            </div>
+                                            <!-- Other PTM Card Body -->
+                                            <div class="card-body">
+                                                {% if not is_ptmAll_empty%} <!-- TODO: Come back to this line and implement functionality -->
+                                                    <!-- Query PTM Target Table -->
+                                                    <div class="custom-table" id="other-ptm-table" style="max-height: 220px;">
+                                                        <table class="table table-condensed table-striped" id="other-ptm-tabler">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>
+                                                                        
+                                                                        <div class="dropdown" title="Click here to filter PTMs by type" data-toggle="tooltip">
+                                                                            PTM Type
+                                                                                
+                                                                            <i class="bi bi-filter-square" type="button" id="ptmTypeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Click here to filter PTMs by type" data-toggle="tooltip"></i>
+
+                                                                            <div class="dropdown-menu" aria-labelledby="ptmTypeDropdown" style="max-height: 200px; overflow-y: auto;" id="ptmTypeDropdown-menu">
+                                                                                <!-- Populate dropdown menu with options -->
+                                                                                <a class="dropdown-item text-right">                                                                                
+                                                                                    <i class="bi bi-arrow-clockwise" type="button" onclick="clearFilters1()" title="Click here to clear filters." data-toggle="tooltip"></i>
+                                                                                </a>
+
+
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Acetylation')">Acetylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('ADP-ribosylation')">ADP-ribosylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Amidation')">Amidation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Atg12 conjugation')">Atg12 conjugation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Biotin')">Biotin</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Bromination')">Bromination</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Citrullination')">Citrullination</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Covalent protein-DNA linkage')">Covalent protein-DNA linkage</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Cross-link')">Cross-link</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('FAD')">FAD</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Gamma-carboxyglutamic acid')">Gamma-carboxyglutamic acid</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Glutathionylation')">Glutathionylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Glycation')">Glycation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Glycoprotein; Hydroxylation')">Glycoprotein; Hydroxylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Glycoprotein; Phosphoprotein')">Glycoprotein; Phosphoprotein</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Glycosylation')">Glycosylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('GPI-anchor')">GPI-anchor</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Hydroxylation')">Hydroxylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Hypusine')">Hypusine</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Iodination')">Iodination</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Isopeptide bond')">Isopeptide bond</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Lipidation')">Lipidation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Lipoyl')">Lipoyl</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('LTQ')">LTQ</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Methylation')">Methylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Modified residue')">Modified residue</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Myristate')">Myristate</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Neddylation')">Neddylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Nitration')">Nitration</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Nucleotide-binding; Phosphoprotein')">Nucleotide-binding; Phosphoprotein</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Oxidation')">Oxidation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Palmitate')">Palmitate</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Phosphopantetheine; Phosphoprotein')">Phosphopantetheine; Phosphoprotein</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Phosphorylation')">Phosphorylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Prenylation')">Prenylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Proteoglycan')">Proteoglycan</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Pyridoxal phosphate')">Pyridoxal phosphate</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Pyrrolidone carboxylic acid')">Pyrrolidone carboxylic acid</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Pyruvate')">Pyruvate</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Retinal protein')">Retinal protein</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('S-nitrosylation')">S-nitrosylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Selenocysteine')">Selenocysteine</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Succinylation')">Succinylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Sulfation')">Sulfation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Sumoylation')">Sumoylation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Thioester bond')">Thioester bond</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Thioether bond')">Thioether bond</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('TPQ')">TPQ</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Transglutamation')">Transglutamation</a>
+                                                                                <a class="dropdown-item" onclick="filterByPtmType1('Ubiquitination')">Ubiquitination</a>
+                                                                                <!-- Add more options as needed -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th title="Location of PTM on queried canonical protein sequence" data-toggle="tooltip">Position</th>
+                                                                    <th title="Wild type residue" data-toggle="tooltip">WildType </th>
+                                                                    <th title="Distance from the Target residue on chain {{ Target_Chain }} in angstroms (specifying which chain is used for the PTM residue)" data-toggle="tooltip">Chain/Distance(Å) </th>
+                                                                    <th title="Source(s) associated with PTM" data-toggle="tooltip" data-placement="right">Source</th>
+                                                                    <th title="Uniprot Evidence Code" data-toggle="tooltip" data-placement="right"><a href="https://www.uniprot.org/help/evidences#evidence-types-used-for-uniprotkb-annotations" target="_blank">Evidence Code</a></th>
+
+                            
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {% for index, row in other_ptms_df.iterrows %}
+                                                                    <tr>
+                                                                        <td>{{ row.ptm_type }}</td>
+                                                                        <td>{{ row.Position }}</td>
+                                                                        <td>{{ row.wt_residue }}</td>
+                                                                        <td>{{ row.chain_id }} {{ row.min_distance_to_target }}</td>
+                                                                        <td>
+                                                                            {% if '-' not in row.htmlLink  %}
+                                                                                <button class="btn btn-custom-source" type="button" data-toggle="collapse" data-target="#sources{{ index }}" aria-expanded="false" aria-controls="sources{{ index }}" title="Click here to see all sources for this PTM." data-toggle="tooltip">
+                                                                                    <i class="bi bi-bookmark-fill"></i>
+                                                                                    <span>Sources ({{ row.htmlLink|length }})</span>
+                                                                                </button>
+                                                                                <ul class="collapse" id="sources{{ index }}">
+                                                                                    {% for source in row.htmlLink %}
+                                                                                        <li>{{ source | safe}}</li>
+                                                                                    {% endfor %}
+                                                                                </ul>
+                                                                            {% else %}
+                                                                                <a href="https://www.uniprot.org/uniprotkb/{{uniprot_id}}/entry#ptm_processing" target="_blank">UniProt</a>
+                                                                            {% endif %}
+                                                                        </td>
+                                                                        <td style="font-size: x-small;">{{ row.evidence_code| join:', ' }}</td>
+                                                                    </tr>
+                                                                {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <button class="btn expand-collapse-btn text-center" type="button" onclick="toggleContent('other-ptm-table', 'expandCollapseBtn-otherptm')" id="expandCollapseBtn-otherptm">
+                                                        <span><i class="bi bi-arrows-angle-expand"></i> Expand</span>
+                                                    </button>
+                                                {% else %}
+                                                    <p style= "color: red" class="text-center">No other PTMs found </p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <br>
+        <!-- Other PTMs Table Close -->
+                                    </div>
+    <!-- Left Column Close -->
+
+
+
+    <!-- Right Column Open -->
+                                    <!-- the entire column on the right -->
+                                    <div class="col-sm-5" id="right-column">
+        <!-- JSmol Open -->
+                                        <!-- Everything for JSmol structural display -->
+                                        <div class="card" id="card-jsmol">
+                                            <!-- JSmol head -->
+                                            <div class="card-header">
+                                                <center>
+                                                    <div class="hover-container">
+                                                        <h4 class="text-center" style="margin: 0;">JSMOL</h4>
+                                                        <div class="symboltitle" style="display: flex; align-items: flex-start; justify-content: flex-start;"><i class="bi bi-info-circle" style="margin-left: auto;"></i></div>
+                                                        <div class="hover-section" style="left: 50%; transform: translateX(-50%);"><img src="/static/dbQuery/images/Legends.png" style= "width: 500px; height:auto;border-radius: 20px;" alt="JSmol Legend"></div>
+                                                    </div>
+                                                </center>
+                                            </div>
+                                            
+                                            <!-- JSmol contents -->
+                                            <div class="card-body">
+                                                {% include "dbQuery/jsmol.html" %}
+                                            </div>
+                                        </div>
+                                        <br>
+        <!-- JSmol Close  -->
+        <!-- Topology Open  -->
+                                        <!-- Topology Card -->
+                                        <div class="card" id="card-topology">
+                                            <!-- Topology Card Header -->
+                                            <div class="card-header">
+                                                <center>  
+                                                    <div class="hover-container">
+                                                        <h4 id="topology-table" class="text-center" style="margin: 0; padding-right: 2px;"> Topology Information</h4>
+                                                        <div class="symboltitle" style="display: flex; align-items: flex-start; justify-content: flex-start;">
+                                                            <i class="bi bi-info-circle" style="margin-left: auto;"></i>
+                                                        </div>
+                                                        <div class="hover-section">Topology information for membrane-bound proteins.</div>
+                                                    </div>
+                                                </center>
+                                            </div>
+                                            
+                                            <!-- Topology Card Body -->
+                                            <div class="card-body">
+                                                {% if topology %}
+                                                    <div class="custom-table" id="topology-expand" style="display: none;">
+                                                        {{topology|safe}}
+                                                    </div>
+                                                    <button class="btn expand-collapse-btn text-center" type="button" onclick="toggleContent_topology('topology-expand', 'expandCollapseBtn-topology')" id="expandCollapseBtn-topology">
+                                                        <span><i class="bi bi-arrows-angle-expand"></i> Expand</span>
+                                                    </button>
+                                                {% else %}
+                                                    <p style="color: red" class="text-center">No topology information found.</p>
+                                                {% endif %}
+                                            </div> 
+                                        </div>
+        <!-- Topology Close -->
+                                    </div>
+    <!-- Right Column Close -->
+                                </div>
+                            </div>
+                        </div>
+<!-- Main Results Section Close -->
+                    </div>
+                    <hr>
+<!-------------------- Main Contents Close -------------------->
+                </div>
+            </div>
+        </div>  
+    </div>
+        <!-- Warning button -->
+        <button id="warning-button" onclick="showWarningMessage()">Warning</button>
+
+        <script>
+            // Wait until the page has fully loaded
+            window.onload = function() {
+                // Check if the warning_message_combined is present
+                const warningMessage = "{{ warning_message_combined|escapejs }}";
+                if (warningMessage) {
+                    // Format the message for better readability
+                    const formattedMessage = warningMessage.replace(/\n/g, '\n- ');
+                    // Show the initial alert
+                    alert("The following warning(s) were detected, due to sequence inconsistency between AlphaFold and UniProt:\n\n" + "- " + formattedMessage);
+                    // Show the warning button after user clicks OK
+                    document.getElementById('warning-button').style.display = 'block';
+    
+                    // Save the warning message to use when the button is clicked
+                    window.warningMessage = formattedMessage;
+                }
+            };
+    
+            // Function to show the warning message when the button is clicked
+            function showWarningMessage() {
+                if (window.warningMessage) {
+                    alert("The following warnings were detected:\n\n" + "- " + window.warningMessage);
+                }
+            }
+        </script>
+
+</body>
+{% endblock %}
+

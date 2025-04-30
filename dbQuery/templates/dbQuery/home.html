@@ -1,0 +1,255 @@
+<!-- home.html -->
+<head>
+  <title>Missense3D-PTM Home</title>
+</head>
+{% extends 'dbQuery/base.html' %}
+<!-- {% load static %} -->
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  
+  <body>
+    <div class="content">
+      <div class="jumbotron" style="background-color: #40556a; border-radius: 0;padding-bottom: 20px;padding-top: 20px;">
+        <div class="container">
+          <!-- Welcome Text -->
+          <div>
+            <h1 style="color: white; text-align: center;"><strong>Welcome to </strong><img class="ml-0" src="{% static 'dbQuery/images/missense3d_logo_PTM-db_white.png' %}" style="padding-bottom: 20px"alt="IC-logo"  width="300"></h1>
+            <p style="color: white; text-align: justify;">Missense3D-PTM<sup style="top: 2px;font-size: 10px;">DB</sup> is a comprehensive resource which allows users to explore millions of variants, post-translational modifications (PTMs), 
+                and topology information, if any, for the collection of canonical proteins within the human proteome (~20,000). Users can visualize these features on a 3D AlphaFold 
+                model for their protein of interest by simply providing (1) a gene name or UniProt ID, (2) a position 
+                within the canonical UniProt protein sequence, and (3) the wild type residue at that position.  Click here for more information on <a href="{% url 'dataset' %}">datasets</a> used within Missense3D-PTM 
+                and additional <a href="{% url 'documentation' %}">documentation</a>.
+            </p>
+            <center><p><a class="btn btn-custom-home btn-lg" href="http://missense3d.bc.ic.ac.uk/" role="button">Check out our other tools »</a></p></center>
+          </div>
+        </div>
+      </div>
+
+      <script>
+            function validateForm() {
+              /* Checks if user input is valid */
+              var uniprotId = document.getElementById('UNIPROT').value.trim();
+              var geneName = document.getElementById('GENENAME').value.trim();
+              
+
+              // Validate UniProt ID and Gene Name
+              if (uniprotId && geneName) {
+                  alert("Please enter either a UniProt ID OR a gene name, not both.");
+                  return false;
+              }
+              if (!uniprotId && !geneName) {
+                  alert("Please make sure to enter a UniProt ID OR a gene name.");
+                  return false;
+              }
+
+              var uploadChoice = document.querySelector('input[name="upload_choice"]:checked').value;
+              var file = document.getElementById('file').value.trim();
+              var startPosition = document.getElementById('start_position').value.trim();
+              var TargetChain = document.getElementById('Target_Chain').value.trim();
+              // Conditional Validation for 'upload' choice
+              if (uploadChoice == 'upload') {
+                  if (!file) {
+                      alert("Please upload a file.");
+                      return false;
+                  }
+                  if (!startPosition) {
+                      alert("Please provide a start position for the uploaded file.");
+                      return false;
+                  }
+                  if (isNaN(startPosition) || startPosition <= 0) {
+                      alert("Start position must be a positive number.");
+                      return false;
+                  }
+                  if (!TargetChain) {
+                      alert("Please provide a Target Chain for the uploaded file.");
+                      return false;
+                  }
+              }
+              // If all validations pass
+              return true;
+          }
+
+
+        function uniprotFormFill(uniprot_id, gene_name, uni_pos, wt_residue) {
+          /* automatically fills form with set examples */
+          document.getElementById('UNIPROT').value = uniprot_id.trim();
+          document.getElementById('GENENAME').value = gene_name.trim();
+          document.getElementById('POSITION').value = uni_pos.trim();          
+          document.getElementById('RESIDUE').value = wt_residue.trim(); 
+
+
+        }
+      </script> 
+
+
+      <!-- Input Form -->
+      <div class="row justify-content-center">
+        <!-- Header of Input Form -->
+        <!-- <div class="col-md-10" style="border: none;">
+          <div class="text-center py-3" style="background-image: url('{% static "dbQuery/images/bg1-mdgrey.png" %}'); background-repeat: repeat; margin: 0.1;">
+            <div class="row justify-content-center">
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <button type="button" class="btn btn-outline-light" data-toggle="collapse" data-target="#uniprot_input_id" id="button2" aria-expanded="false" aria-controls="uniprot_input_id">
+                  <span style="font-size: 20px;">Find protein features</span>
+                </button>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+              </div>
+          </div>
+        </div> -->
+        
+        <!-- Body of Input Form -->
+        <div id="uniprot_input_id" class="col-md-10">
+          <div class="card-header" style="padding: 0; margin: 0;">
+            <div class="text-center py-3" style="background-image: url('{% static "dbQuery/images/bg1-mdgrey.png" %}'); background-repeat: repeat; margin: 0.1; border-radius: 15px 15px 0 0;">
+              <u style="color: white;"><h4 style="color: white; border-color: white; border-radius: 15px 15px 0 0;">Find Protein Features</h4></u>
+            </div>
+          </div>
+            <div class="card" style="border-color: #485d72; border-width: 2px;">
+              <div class="card-body" style="padding-top: 25px;">
+                <form method="post" action="{% url 'process_form' %}" enctype="multipart/form-data" name = inputForm onsubmit="return validateForm()">
+                  {% csrf_token %}
+                  <div class="d-flex justify-content-center">
+                    <div class="row">
+                    <!-- left column -->
+                    <div class="col-lg-6">
+                      <div class="border-left border-right border-top border-bottom border-gray py-3 px-3">
+                          <div class="form-group row" id="uniprotidbox">
+                              <label for="input_uniprotID" class="col-sm-5 col-form-label" data-toggle="popver" title="Hello" >UniProt ID:</label>
+                              <div class="col-sm-7">
+                                <input type="text" class="form-control" minlength="6" id="UNIPROT" name="UNIPROT" placeholder="e.g. P00918" data-toggle="tooltip" data-placement="right" title="Please enter a UniProt Primary Accession ID.">
+                              </div>
+                          </div>
+
+                          <div class="form-group row" id="geneidbox">
+                              <label for="input_geneName" class="col-sm-5 col-form-label"><strong style="color: red;">OR </strong>Gene Name:</label>
+                              <div class="col-sm-7">
+                                <input type="text" class="form-control"  id="GENENAME" name="GENENAME" placeholder="e.g. ASCL1" data-toggle="tooltip"  data-placement="right" title="Please enter a gene name. Currently, alternative gene names are not accepted.">
+                              </div>
+                          </div>
+
+                          <div class="form-group row" id="position">
+                              <label for="input_position" class="col-sm-5 col-form-label">Residue Position:</label>
+                              <div class="col-sm-7">
+                                <input type="text" class="form-control example-popover" id="POSITION" name="POSITION" placeholder="e.g. 107" data-toggle="tooltip"  data-placement="right" title="Position of the amino acid on the fasta sequence of the canonical protein from UniProt. Sequence indexing starts at 1." required="true">
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="input_residue" class="col-sm-5 col-form-label">Wild Type Residue:<span class="text-muted">(Required just as a check)</span></label>
+                              <div class="col-sm-7">
+                              <select class="custom-select d-block w-100" id="RESIDUE" name="RESIDUE" required="true">
+                                <option value="">Choose...</option>
+                                      <option value="A">Ala (A Alanine)</option>
+                                      <option value="R">Arg (R Arginine)</option>
+                                      <option value="N">Asn (N Asparagine)</option>
+                                      <option value="D">Asp (D Aspartic acid)</option>
+                                      <option value="C">Cys (C Cysteine)</option>
+                                      <option value="E">Glu (E Glutamic acid)</option>
+                                      <option value="Q">Gln (Q Glutamine)</option>
+                                      <option value="G">Gly (G Glycine)</option>
+                                      <option value="H">His (H Histidine)</option>
+                                      <option value="I">Ile (I Isoleucine)</option>
+                                      <option value="L">Leu (L Leucine)</option>
+                                      <option value="K">Lys (K Lysine)</option>
+                                      <option value="M">Met (M Methionine)</option>
+                                      <option value="F">Phe (F Phenylalanine)</option>
+                                      <option value="P">Pro (P Proline)</option>
+                                      <option value="S">Ser (S Serine)</option>
+                                      <option value="T">Thr (T Threonine)</option>
+                                      <option value="W">Trp (W Tryptophan)</option>
+                                      <option value="Y">Tyr (Y Tyrosine)</option>
+                                      <option value="V">Val (V Valine)</option>
+          
+          
+                              </select>
+                              </div>
+                              <div class="invalid-feedback">
+                                Please select a valid amino acid.
+                              </div>
+                          </div>
+
+                          <div>
+                            <label style="display: none;">Do you want to upload a PDB file? </label>
+                            <input type="radio" id="upload" name="upload_choice" value="upload" style="display: none;"> 
+                            <input type="radio" id="no_upload" name="upload_choice" value="no_upload" style="font-size: 8px;display: none;" checked> 
+                          </div>
+                          <div id="file_field" style="display: none;">
+                              <label for="id_file">Upload a PDB file:</label>
+                              <input type="file" data-toggle="tooltip" id="file" name="upload_file">
+                          </div>
+                          <div id="start_position_field" style="display: none;">
+                              <label for="id_start_position">Start Position:</label>
+                              <input type="number" class="form-control" data-toggle="tooltip" placeholder="1 if no mismatch" id="start_position" name="start_position" min="1" title="If the file sequence mismatches UniProt sequence, input start position on UniProt sequence (if template position 1 = uniprot position 11, input 11.)">
+                          </div>
+                          <div id="Target_Chain_field" style="display: none;">
+                            <label for="id_Target_Chain"> Target Chain: </label>
+                            <input type="text" class="form-control" data-toggle="tooltip" placeholder="e.g.  A" id="Target_Chain" name="Target_Chain" title="Because PDB file might contain multiple chains, your target position might appear on multiple chains, please specify which chain you want to focus on.">
+                        </div>
+                      </div>
+                    </div>
+
+                  <!-- right column -->
+                    <div class="col-lg-6 text-center">
+                      <div class="list-group">
+                        <a class="list-group-item list-group-item-action active">
+                          <span class="text-white">You can also choose from these examples to help you get started (click to apply)</span>
+                        </a>
+                        <a onclick="uniprotFormFill('Q03431', '',  '176','N')" class="list-group-item list-group-item-action"><strong>Uniprot ID: </strong>Q03431 | <strong>Residue Position: </strong>176 | <strong>WT Residue: </strong>ASN</a>
+                        <a onclick="uniprotFormFill('P00533', '', '678','T')" class="list-group-item list-group-item-action "><strong>Uniprot ID: </strong>P00533 | <strong>Residue Position: </strong>678 | <strong>WT Residue: </strong>THR</a>
+                        <a onclick="uniprotFormFill('', 'ABCG8', '543','R')" class="list-group-item list-group-item-action"><strong>Gene Name: </strong>ABCG8 | <strong>Residue Position: </strong>543 | <strong>WT Residue: </strong>ARG</a>
+                        <a onclick="uniprotFormFill('', 'NPC1', '734','S')" class="list-group-item list-group-item-action"><strong>Gene Name: </strong>NPC1 | <strong>Residue Position: </strong>734 | <strong>WT Residue: </strong>SER</a>
+                      </div>
+                    </div>
+
+
+                    </div>
+                  </div>
+                  <br>
+                  <!-- submit button -->
+                  <div class="row justify-content-center">
+                    <input type="submit" value="Submit">    
+                  </div>
+                </form>
+
+
+              </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  
+
+    <!-- For upload choices -->
+    <script>
+      function toggleFields() {
+          const uploadChoice = document.querySelector('input[name="upload_choice"]:checked');
+          const fileField = document.getElementById('file_field');
+          const startPositionField = document.getElementById('start_position_field');
+          const TargetChainfield = document.getElementById('Target_Chain_field');
+    
+          if (uploadChoice && uploadChoice.value === 'upload') {
+              fileField.style.display = 'block';
+              startPositionField.style.display = 'block';
+              TargetChainfield.style.display = 'block';
+          } else {
+              fileField.style.display = 'none';
+              startPositionField.style.display = 'none';
+              TargetChainfield.style.display = 'none';
+          }
+      }
+      // Initialize on page load
+      document.addEventListener('DOMContentLoaded', function () {
+        toggleFields(); // Set initial visibility
+        const radios = document.querySelectorAll('input[name="upload_choice"]');
+        radios.forEach(radio => {
+            radio.addEventListener('change', toggleFields);
+        });
+    });
+    </script>
+    
+  </body>
+{% endblock %}
+
