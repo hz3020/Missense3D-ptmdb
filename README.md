@@ -9,7 +9,7 @@ Build with
 Database connection: 
   variantPSite/setting.py -> databases
   Mysql database in: msc.bc.ic.ac.uk
-        Database name: variantp   User name: variantp   &   Password: variantp2024
+        Database name: variantp   User name: variantp   
         mysql -h msc.bc.ic.ac.uk  -u variantp -p variantp
 
 Backend: 
